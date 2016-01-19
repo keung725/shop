@@ -70,6 +70,7 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
 
+        //when create a user, it will attach a member role
         $user = User::find($create->id);
         $role = Role::where('name', '=', 'member')->firstOrFail();
         $user->roles()->attach($role->id);
