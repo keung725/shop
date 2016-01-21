@@ -23,6 +23,19 @@
 
             <li class="treeview">
                 <a href="#">
+                    <i class="fa fa-edit"></i> <span>Home Banner</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ url('/admin/homebanner') }}"><i class="fa fa-circle-o"></i> All Home Banner</a></li>
+                    <li><a href="{{ url('/admin/homebanner/create') }}"><i class="fa fa-circle-o"></i> Create Home Banner</a></li>
+                    <li><a href="{{ url('/admin/homebanner/recover') }}"><i class="fa fa-trash-o"></i> Recover Home Banner</a></li>
+
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
                     <i class="fa fa-edit"></i> <span>Roles</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
