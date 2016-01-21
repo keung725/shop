@@ -34,7 +34,7 @@
                                         <input type="checkbox" ng-true-value="1" ng-false-value="'0'" ng-model="HomeBanner.show" ng-change="updateHomeBanner(HomeBanner)" readonly disabled>
                                     </td>
                                     <td>
-                                        <input type="text" class="form-control" id="ordering" ng-model="HomeBanner.ordering" size="3" ng-change="updateHomeBanner(HomeBanner)" readonly>
+                                        <input type="text" class="form-control" id="ordering" ng-model="HomeBanner.ordering" onClick="this.setSelectionRange(0, this.value.length)" size="3" ng-change="updateHomeBanner(HomeBanner)" readonly>
                                     </td>
                                     <td><% HomeBanner.created_at %></td>
                                     <td>
