@@ -60,5 +60,18 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('users', 'UsersController@index');
         Route::get('users/{id?}/edit', 'UsersController@edit');
         Route::post('users/{id?}/edit','UsersController@update');
+        Route::get('homebanner', 'HomeBannerController@listView');
+        Route::get('homebanner/recover', 'HomeBannerController@recoverView');
+        Route::get('homebanner/create', 'HomeBannerController@create');
+        Route::post('homebanner/store', 'HomeBannerController@store');
+
+    });
+
+    Route::group(array( 'middleware' => ['role:siteowner|admin']), function () {
+        Route::get('api/homebanners', 'Admin\HomeBannerController@index');
+        Route::put('api/homebanner/{id?}', 'Admin\HomeBannerController@update');
+        Route::get('api/homebanners/recovers', 'Admin\HomeBannerController@recoverIndex');
+        Route::put('api/homebanner/recover/{id?}', 'Admin\HomeBannerController@recoverUpdate');
+
     });
 });

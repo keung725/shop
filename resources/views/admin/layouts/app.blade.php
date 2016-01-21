@@ -59,7 +59,7 @@
 <!-- jQuery 2.1.4 -->
 <script src="{{ URL::asset('backend/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="{{ URL::asset('backend/plugins/jQueryUI/jquery-ui.min.js') }}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
     $.widget.bridge('uibutton', $.ui.button);
@@ -93,9 +93,10 @@
 <!-- DATA TABLES -->
 <script src="{{ URL::asset('backend/plugins/datatables/jquery.dataTables.js') }}"></script>
 <script src="{{ URL::asset('backend/plugins/datatables/dataTables.bootstrap.js') }}"></script>
-
+<script src="{{ URL::asset('backend/plugins/jQuery/jquery.form.js') }}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
 <script>
-    $(function () {
+    var dataTable = function () {
         $('#dataListingTable').DataTable({
             "paging": true,
             "lengthChange": true,
@@ -104,7 +105,12 @@
             "info": true,
             "autoWidth": false
         });
-    });
+    }
+    setTimeout(dataTable, 300);
+
 </script>
+
+@yield('page-script')
+
 </body>
 </html>
