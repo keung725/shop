@@ -69,14 +69,14 @@
                 success(function(data, status, headers, config) {
                     $scope.HomeBanners = data;
                     $scope.loading = false;
-
+                    setTimeout(dataTable, 100);
                 });
             }
 
             $scope.updateHomeBanner = function(HomeBanner) {
                 $scope.loading = true;
 
-                $http.put('/api/homebanner/recover/' + HomeBanner.id, {
+                $http.put('/api/homebanner/' + HomeBanner.id, {
                     status: HomeBanner.status,
                     ordering: HomeBanner.ordering,
                     show: HomeBanner.show,

@@ -73,6 +73,7 @@
                 success(function(data, status, headers, config) {
                     $scope.HomeBanners = data;
                     $scope.loading = false;
+                    setTimeout(dataTable, 100);
                 });
             }
 
@@ -88,7 +89,7 @@
                     $scope.HomeBanner = data;
                     $scope.loading = false;
                     $("#success_message").append('<p class="alert alert-success"><strong>Update Success!</strong></p>');
-                    $("#success_message").show().delay(2000).fadeOut();;
+                    $("#success_message").show().delay(2000).fadeOut();
                 });;
             };
 

@@ -3,7 +3,7 @@
 @section('title', 'All roles')
 
 @section('admin_content')
-<div class="content-wrapper">
+<div class="content-wrapper" ng-app="Roles" ng-controller="RolesController">
     @include('admin.layouts.breadcrumb')
     <section class="content-header">
         <a href="{{ url('/admin/roles/create') }}">Go to Roles Create</a>
@@ -16,14 +16,6 @@
                     <div class="box-header">
                         <h3 class="box-title">@yield('title')</h3>
                     </div><!-- /.box-header -->
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    @if ($roles->isEmpty())
-                        <p> There is no role.</p>
-                    @else
                     <div class="box-body table-responsive">
                         <table id="dataListingTable" class="table table-bordered table-striped">
                             <thead>
@@ -36,22 +28,50 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($roles as $role)
-                                <tr>
-                                    <td>{!! $role->id !!}</td>
-                                    <td>{!! $role->name !!}</td>
-                                    <td>{!! $role->display_name !!}</td>
-                                    <td>{!! $role->description !!}</td>
-                                    <td><a href="{!! action('Admin\RolesController@edit', $role->id) !!}">edit</a></td>
+                                <tr ng-repeat='Role in Roles'>
+                                    <td><% Role.id %></td>
+                                    <td><% Role.name %></td>
+                                    <td><% Role.display_name %></td>
+                                    <td><% Role.description %></td>
+                                    <td><a href="/admin/roles/<% Role.id %>">edit</a></td>
                                 </tr>
-                            @endforeach
                             </tbody>
                         </table>
                     </div><!-- /.box-body -->
-                    @endif
                 </div><!-- /.box -->
             </div><!-- /.col -->
         </div><!-- /.row -->
     </section><!-- /.content -->
 </div>
 @endsection
+
+@section('page-script')
+    <script type="text/javascript">
+        var app = angular.module('Roles', [], function($interpolateProvider) {
+            $interpolateProvider.startSymbol('<%');
+            $interpolateProvider.endSymbol('%>');
+        });
+
+        app.controller('RolesController', function($scope, $http) {
+
+            $scope.Roles = [];
+            $scope.loading = false;
+
+            $scope.init = function() {
+                $scope.loading = true;
+                $http.get('/api/roles').
+                success(function(data, status, headers, config) {
+                    $scope.Roles = data;
+                    $scope.loading = false;
+                    setTimeout(dataTable, 100);
+                });
+            }
+
+            $scope.init();
+
+        });
+
+
+
+    </script>
+@stop

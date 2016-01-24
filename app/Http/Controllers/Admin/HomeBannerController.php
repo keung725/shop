@@ -19,18 +19,6 @@ class HomeBannerController extends Controller
         return view('admin.homebanner.create');
     }
 
-    public function index()
-    {
-        $HomeBanners = HomeBanner::all()->where('status', 1);
-        return $HomeBanners;
-    }
-
-    public function recoverIndex()
-    {
-        $HomeBanners = HomeBanner::all()->where('status', 4);
-        return $HomeBanners;
-    }
-
     public function listView()
     {
         return view('admin.homebanner.index', compact('HomeBanners'));
@@ -39,26 +27,6 @@ class HomeBannerController extends Controller
     public function recoverView()
     {
         return view('admin.homebanner.recover', compact('HomeBanners'));
-    }
-
-    public function update($id) {
-        $HomeBanner = HomeBanner::find($id);
-        $HomeBanner->show = Request::input('show');
-        $HomeBanner->ordering = Request::input('ordering');
-        $HomeBanner->status = Request::input('status');
-        $HomeBanner->save();
-
-        return $HomeBanner;
-    }
-
-    public function recoverUpdate($id) {
-        $HomeBanner = HomeBanner::find($id);
-        $HomeBanner->show = Request::input('show');
-        $HomeBanner->ordering = Request::input('ordering');
-        $HomeBanner->status = Request::input('status');
-        $HomeBanner->save();
-
-        return $HomeBanner;
     }
 
     public function store(){

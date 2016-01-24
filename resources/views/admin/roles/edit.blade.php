@@ -4,7 +4,7 @@
 
 @section('admin_content')
 
-    <div class="content-wrapper">
+    <div class="content-wrapper" ng-app="Roles" ng-controller="RolesController" ng-init="showRoles({{$role->id}})">
 
         @include('admin.layouts.breadcrumb')
                 <!-- Main content -->
@@ -15,28 +15,21 @@
                     <h3 class="box-title">@yield('title')</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                    <form class="form" method="post">
-                        @foreach ($errors->all() as $error)
-                            <p class="alert alert-danger">{{ $error }}</p>
-                        @endforeach
-
-                        @if (session('status'))
-                            <div class="alert alert-success">
-                                {{ session('status') }}
-                            </div>
-                        @endif
+                    <form class="form" id="dataForm" method="post" action="{{ url('admin/roles/'.$role->id)}}">
                         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+                        <div id="validation-errors"></div>
+                        <div id="success_message"></div>
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" class="form-control" id="name" name="name" value="{{ $role->name }}">
+                            <input type="text" class="form-control" id="name" name="name" ng-model="Roles.name" >
                         </div>
                         <div class="form-group">
                             <label>Display Name</label>
-                            <input type="display_name" class="form-control" id="display_name" name="display_name" value="{{ $role->display_name }}">
+                            <input type="display_name" class="form-control" id="display_name" name="display_name" ng-model="Roles.display_name"
                         </div>
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea class="form-control" rows="3" id="description" name="description">{{ $role->description }}</textarea>
+                            <textarea class="form-control" rows="3" id="description" name="description" ng-model="Roles.description"></textarea>
                         </div>
                         <div class="form-group">
                             <div class="col-lg-10 col-lg-offset-2">
@@ -50,3 +43,66 @@
         </section>
     </div>
 @endsection
+
+
+@section('page-script')
+    <script type="text/javascript">
+        var app = angular.module('Roles', [], function($interpolateProvider) {
+            $interpolateProvider.startSymbol('<%');
+            $interpolateProvider.endSymbol('%>');
+        });
+
+        app.controller('RolesController', function($scope, $http) {
+
+            $scope.Roles = [];
+            $scope.loading = false;
+
+            $scope.showRoles= function(id) {
+                $scope.loading = true;
+                $http.get('/api/roles/'+ id ).
+                success(function(data, status, headers, config) {
+                    //console.log(data);
+                    $scope.Roles = data;
+                    $scope.loading = false;
+
+                });
+            }
+
+        });
+
+        $(document).ready(function() {
+            var options = {
+                beforeSubmit:  showRequest,
+                success:       showResponse,
+                dataType: 'json'
+            };
+            $('#dataForm').ajaxForm(options);
+
+        });
+        function showRequest(formData, jqForm, options) {
+            $("#validation-errors").hide().empty();
+            $("#success_message").hide().empty();
+            return true;
+        }
+        function showResponse(response, statusText, xhr, $form)  {
+
+            if(response.success == false)
+            {
+                var error = response.errors;
+                $.each(error, function(index, value)
+                {
+                    if (value.length != 0)
+                    {
+                        $("#validation-errors").append('<p class="alert alert-danger"><strong>'+ value +'</strong></p>');
+                        $("#validation-errors").show().delay(2000).fadeOut();
+                    }
+                });
+                $("#validation-errors").show();
+            } else {
+                var success = response.message;
+                $("#success_message").append('<p class="alert alert-success"><strong>'+ success +'</strong></p>');
+                $("#success_message").show().delay(2000).fadeOut();
+            }
+        }
+    </script>
+@stop

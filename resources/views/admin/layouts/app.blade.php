@@ -100,13 +100,14 @@
         $('#dataListingTable').DataTable({
             "paging": true,
             "lengthChange": true,
+            "lengthMenu": [[20, 50, 100, -1], [20, 50, 100, "All"]],
             "searching": true,
             "ordering": true,
             "info": true,
             "autoWidth": false
         });
     }
-    setTimeout(dataTable, 300);
+
 
 </script>
 
