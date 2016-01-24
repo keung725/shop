@@ -54,9 +54,9 @@ Route::group(['middleware' => 'web'], function () {
         });
         Route::get('roles', 'RolesController@index');
         Route::get('roles/create', 'RolesController@create');
-        Route::post('roles/create', 'RolesController@store');
-        Route::get('roles/{id?}/edit', 'RolesController@edit');
-        Route::post('roles/{id?}/edit','RolesController@update');
+        Route::post('roles/store', 'RolesController@store');
+        Route::get('roles/{id?}', 'RolesController@edit');
+        Route::post('roles/{id?}','RolesController@update');
         Route::get('users', 'UsersController@index');
         Route::get('users/{id?}/edit', 'UsersController@edit');
         Route::post('users/{id?}/edit','UsersController@update');
@@ -67,11 +67,12 @@ Route::group(['middleware' => 'web'], function () {
 
     });
 
-    Route::group(array( 'middleware' => ['role:siteowner|admin']), function () {
-        Route::get('api/homebanners', 'Admin\HomeBannerController@index');
-        Route::put('api/homebanner/{id?}', 'Admin\HomeBannerController@update');
-        Route::get('api/homebanners/recovers', 'Admin\HomeBannerController@recoverIndex');
-        Route::put('api/homebanner/recover/{id?}', 'Admin\HomeBannerController@recoverUpdate');
+    Route::group(array( 'prefix' => 'api', 'namespace' => 'Api', 'middleware' => ['role:siteowner|admin']), function () {
+        Route::get('roles', 'RolesController@index');
+        Route::get('roles/{id?}', 'RolesController@edit');
+        Route::get('homebanners', 'HomeBannerController@index');
+        Route::put('homebanner/{id?}', 'HomeBannerController@update');
+        Route::get('homebanners/recovers', 'HomeBannerController@recoverIndex');
 
     });
 });

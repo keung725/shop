@@ -5,11 +5,9 @@
 @section('admin_content')
 
     <div class="content-wrapper">
-
         @include('admin.layouts.breadcrumb')
                 <!-- Main content -->
         <section class="content">
-
             <div class="box box-warning">
                 <div class="box-header with-border">
                     <h3 class="box-title">@yield('title')</h3>
@@ -66,11 +64,11 @@
                         $("#validation-errors").append('<p class="alert alert-danger"><strong>'+ value +'</strong></p>');
                     }
                 });
-                $("#validation-errors").show();
+                $("#validation-errors").show().delay(2000).fadeOut();
             } else {
                 var success = response.message;
                 $("#success_message").append('<p class="alert alert-success"><strong>'+ success +'</strong></p>');
-                $("#success_message").show();
+                $("#success_message").show().delay(2000).fadeOut();
             }
         }
     </script>

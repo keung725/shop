@@ -15,16 +15,9 @@
                 <h3 class="box-title">@yield('title')</h3>
             </div><!-- /.box-header -->
             <div class="box-body">
-                <form class="form" method="post">
-                    @foreach ($errors->all() as $error)
-                        <p class="alert alert-danger">{{ $error }}</p>
-                    @endforeach
-
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                <form class="form" id="dataForm" method="post" action="{{ url('admin/roles/store')}}">
+                    <div id="validation-errors"></div>
+                    <div id="success_message"></div>
                     <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                     <div class="form-group">
                         <label>Name</label>
@@ -50,3 +43,44 @@
     </section>
 </div>
 @endsection
+
+@section('page-script')
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            var options = {
+                beforeSubmit:  showRequest,
+                success:       showResponse,
+                dataType: 'json',
+                clearForm: true
+            };
+            $('#dataForm').ajaxForm(options);
+
+        });
+        function showRequest(formData, jqForm, options) {
+            $("#validation-errors").hide().empty();
+            $("#success_message").hide().empty();
+            return true;
+        }
+        function showResponse(response, statusText, xhr, $form)  {
+
+            if(response.success == false)
+            {
+                var error = response.errors;
+                $.each(error, function(index, value)
+                {
+                    if (value.length != 0)
+                    {
+                        $("#validation-errors").append('<p class="alert alert-danger"><strong>'+ value +'</strong></p>');
+                        $("#validation-errors").show().delay(2000).fadeOut();
+                    }
+                });
+                $("#validation-errors").show();
+            } else {
+                var success = response.message;
+                $("#success_message").append('<p class="alert alert-success"><strong>'+ success +'</strong></p>');
+                $("#success_message").show().delay(2000).fadeOut();
+            }
+        }
+    </script>
+@stop
