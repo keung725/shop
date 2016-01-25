@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserEditFormRequest;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Validator;
 use App\User;
 use App\Role;
+use Response;
 use DB;
+use Request;
 
 class UsersController extends Controller
 {
     public function index()
     {
-        $users = User::all();
-
         return view('admin.users.index', compact('users'));
     }
 
@@ -28,17 +27,31 @@ class UsersController extends Controller
         return view('admin.users.edit', compact('user', 'roles', 'selectedRoles'));
     }
 
-    public function update($id, UserEditFormRequest $request)
+    public function update($id)
     {
-        $user = User::whereId($id)->firstOrFail();
-        if($request->get('name') == '') {
-            $user->name = null;
-        }else {
-            $user->name = $request->get('name');
-        }
-        $user->save();
-        $user->saveRoles($request->get('role'));
 
-        return redirect(action('Admin\UsersController@edit', $user->id))->with('status', 'The user has been updated!');
+        $input = Input::all();
+
+        $rules = array();
+
+        $validator = Validator::make($input, $rules);
+        if ( $validator->fails() )
+        {
+            return Response::json(['success' => false, 'errors' => $validator->getMessageBag()->toArray()]);
+
+        }
+        else {
+            $user = User::whereId($id)->firstOrFail();
+            if(Input::get('name') == '') {
+                $user->name = null;
+            }else {
+                $user->name = Input::get('name');
+            }
+            $user->save();
+            $user->saveRoles(Input::get('role'));
+
+
+            return Response::json(['success' => true, 'message'=>  'The user has been updated!']);
+        }
     }
 }

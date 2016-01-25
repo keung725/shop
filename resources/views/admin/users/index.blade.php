@@ -3,7 +3,7 @@
 @section('title', 'All users')
 
 @section('admin_content')
-    <div class="content-wrapper">
+    <div class="content-wrapper" ng-app="Users" ng-controller="UsersController">
         @include('admin.layouts.breadcrumb')
         <!-- Main content -->
         <section class="content">
@@ -13,14 +13,6 @@
                         <div class="box-header">
                             <h3 class="box-title">@yield('title')</h3>
                         </div><!-- /.box-header -->
-                        @if (session('status'))
-                            <div class="alert alert-success">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-                        @if ($users->isEmpty())
-                            <p> There is no user.</p>
-                        @else
                             <div class="box-body table-responsive">
                                 <table id="dataListingTable" class="table table-bordered table-striped">
                                     <thead>
@@ -34,25 +26,55 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($users as $user)
-                                        <tr>
-                                            <td>{!! $user->id !!}</td>
-                                            <td>{!! $user->name !!}</td>
-                                            <td>{!! $user->email !!}</td>
-                                            <td>@foreach($user->roles as $role)
-                                                    {!! $role->display_name !!} <br/>
-                                                @endforeach</td>
-                                            <td>{!! $user->created_at !!}</td>
-                                            <td><a href="{!! action('Admin\UsersController@edit', $user->id) !!}">edit</a></td>
+                                        <tr ng-repeat='User in Users'>
+                                            <td><% User.id %></td>
+                                            <td><% User.name %></td>
+                                            <td><% User.email %></td>
+                                            <td>
+                                                <div ng-repeat="Roles in User.roles">
+                                                    <% Roles.display_name %> <br/>
+                                                </div>
+                                            </td>
+                                            <td><% User.created_at %></td>
+                                            <td><a href="/admin/users/<% User.id %>">edit</a></td>
                                         </tr>
-                                    @endforeach
                                     </tbody>
                                 </table>
                             </div><!-- /.box-body -->
-                        @endif
                     </div><!-- /.box -->
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </section><!-- /.content -->
     </div>
 @endsection
+
+@section('page-script')
+    <script type="text/javascript">
+        var app = angular.module('Users', [], function($interpolateProvider) {
+            $interpolateProvider.startSymbol('<%');
+            $interpolateProvider.endSymbol('%>');
+        });
+
+        app.controller('UsersController', function($scope, $http) {
+
+            $scope.Users = [];
+            $scope.loading = false;
+
+            $scope.init = function() {
+                $scope.loading = true;
+                $http.get('/api/users').
+                success(function(data, status, headers, config) {
+                    $scope.Users = data;
+                    $scope.loading = false;
+                    setTimeout(dataTable, 100);
+                });
+            }
+
+            $scope.init();
+
+        });
+
+
+
+    </script>
+@stop

@@ -58,8 +58,8 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('roles/{id?}', 'RolesController@edit');
         Route::post('roles/{id?}','RolesController@update');
         Route::get('users', 'UsersController@index');
-        Route::get('users/{id?}/edit', 'UsersController@edit');
-        Route::post('users/{id?}/edit','UsersController@update');
+        Route::get('users/{id?}', 'UsersController@edit');
+        Route::post('users/{id?}','UsersController@update');
         Route::get('homebanner', 'HomeBannerController@listView');
         Route::get('homebanner/recover', 'HomeBannerController@recoverView');
         Route::get('homebanner/create', 'HomeBannerController@create');
@@ -68,6 +68,8 @@ Route::group(['middleware' => 'web'], function () {
     });
 
     Route::group(array( 'prefix' => 'api', 'namespace' => 'Api', 'middleware' => ['role:siteowner|admin']), function () {
+        Route::get('users', 'UsersController@index');
+        Route::get('users/{id?}', 'UsersController@edit');
         Route::get('roles', 'RolesController@index');
         Route::get('roles/{id?}', 'RolesController@edit');
         Route::get('homebanners', 'HomeBannerController@index');
