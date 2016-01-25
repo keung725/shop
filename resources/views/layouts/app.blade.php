@@ -2,41 +2,165 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <title>@yield('title')</title>
+    <!-- Bootstrap core CSS -->
+    <link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-    <title>Laravel</title>
 
-    <!-- Fonts -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
+    <!-- styles needed by swiper slider -->
+    <link href="assets/plugins/swiper-master/css/swiper.min.css" rel="stylesheet">
 
-    <!-- Styles -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/home-v7.css" rel="stylesheet">
+    <link href="assets/css/cart-nav.css" rel="stylesheet">
 
-    <style>
-        body {
-            font-family: 'Lato';
-        }
 
-        .fa-btn {
-            margin-right: 6px;
-        }
-    </style>
+    <!-- Just for debugging purposes. -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- include pace script for automatic web page progress bar  -->
+
+    <script>
+        paceOptions = {
+            elements: true
+        };
+    </script>
+    <script src="assets/js/pace.min.js"></script>
 </head>
-<body id="app-layout">
-    <nav class="navbar navbar-default">
-        <div class="container">
-            @include('layouts.header')
-        </div>
-    </nav>
+<body>
 
-    @yield('content')
+@include('layouts.header')
 
-    <!-- JavaScripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+@yield('content')
+
+@include('layouts.footer')
+
+        <!-- Le javascript
+================================================== -->
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="assets/js/jquery/jquery-1.10.1.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/plugins/swiper-master/js/swiper.jquery.min.js"></script>
+<script>
+
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: '.swiper-pagination',
+        nextButton: '.arrow-right',
+        prevButton: '.arrow-left',
+        // effect: 'cube',
+        keyboardControl: true,
+        parallax: true,
+        speed: 600,
+        spaceBetween: 0
+    });
+
+
+</script>
+
+<!-- include jqueryCycle plugin -->
+<script src="assets/js/jquery.cycle2.min.js"></script>
+
+<!-- include easing plugin -->
+<script src="assets/js/jquery.easing.1.3.js"></script>
+
+<!-- include  parallax plugin -->
+<script type="text/javascript" src="assets/js/jquery.parallax-1.1.js"></script>
+
+<!-- optionally include helper plugins -->
+<script type="text/javascript" src="assets/js/helper-plugins/jquery.mousewheel.min.js"></script>
+
+<!-- include mCustomScrollbar plugin //Custom Scrollbar  -->
+
+<script type="text/javascript" src="assets/js/jquery.mCustomScrollbar.js"></script>
+
+<!-- include icheck plugin // customized checkboxes and radio buttons   -->
+<script type="text/javascript" src="assets/plugins/icheck-1.x/icheck.min.js"></script>
+
+<!-- include grid.js // for equal Div height  -->
+<script src="assets/js/grids.js"></script>
+
+<!-- include carousel slider plugin  -->
+<script src="assets/js/owl.carousel.min.js"></script>
+
+<!-- jQuery select2 // custom select   -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+
+<!-- include touchspin.js // touch friendly input spinner component   -->
+<script src="assets/js/bootstrap.touchspin.js"></script>
+
+<!-- include custom script for only homepage  -->
+<script src="assets/js/home.js"></script>
+
+<!-- include custom script for site  -->
+<script src="assets/js/script.js"></script>
+
+<script src="assets/js/sidebar-nav.js"></script>
+
+
+<!-- scrollme || onscroll parallax effect for category page  -->
+<script src="assets/js/jquery.scrollme.min.js"></script>
+<script type="text/javascript">
+
+
+    $(function () {
+        var target = $("div.has-overly-shade"),
+                targetHeight = target.outerHeight();
+        $(document).scroll(function () {
+            var scrollPercent = (targetHeight - window.scrollY) / targetHeight;
+            scrollPercent >= 0 && (target.css("background-color", "rgba(0,0,0," + (1.1 - scrollPercent) + ")"))
+        })
+    });
+
+
+    $(function () {
+        if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
+            $('#ios-notice').removeClass('hidden');
+            $('.parallax-container').height($(window).height() * 0.5 | 0);
+        } else {
+            $(window).resize(function () {
+                var parallaxHeight = Math.max($(window).height() * 0.7, 200) | 0;
+                $('.parallax-container').height(parallaxHeight);
+            }).trigger('resize');
+        }
+    });
+
+
+    $(document).ready(function () {
+        var isMobile = function () {
+            //console.log("Navigator: " + navigator.userAgent);
+            return /(iphone|ipod|ipad|android|blackberry|windows ce|palm|symbian)/i.test(navigator.userAgent);
+        };
+
+        if (isMobile()) {
+            // For  mobile , ipad, tab
+            $('.animateme').removeClass('animateme');
+            $('.if-is-mobile').addClass('ismobile');
+
+        } else {
+        }
+
+
+    }); // end
+
+
+
+
+</script>
+
+
 </body>
 </html>
