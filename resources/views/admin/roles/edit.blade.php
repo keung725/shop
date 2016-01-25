@@ -25,7 +25,7 @@
                         </div>
                         <div class="form-group">
                             <label>Display Name</label>
-                            <input type="display_name" class="form-control" id="display_name" name="display_name" ng-model="Roles.display_name"
+                            <input type="display_name" class="form-control" id="display_name" name="display_name" ng-model="Roles.display_name">
                         </div>
                         <div class="form-group">
                             <label>Description</label>
