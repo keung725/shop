@@ -4,7 +4,7 @@
         <div class="cartMenu   col-xs-12 no-margin-no-padding  ">
 
             <div class="cart-sidebar-header">
-                <h3>Your Bag </h3>
+                <h3>購物車 </h3>
 
                 <div class="cart-close-trigger">
                     <button class="close" type="button">
@@ -140,13 +140,13 @@
 
                 <div class="col-sm-6 ">
                     <a class="btn btn-danger  btn-block">
-                        <i class="fa fa-shopping-cart"> </i> VIEW CART </a>
+                        <i class="fa fa-shopping-cart"> </i> 查看購物車 </a>
                 </div>
 
                 <div class="col-sm-6 ">
 
                     <a class="btn  btn-primary btn-block ">
-                        CHECKOUT </a>
+                        結帳 </a>
 
                 </div>
             </div>

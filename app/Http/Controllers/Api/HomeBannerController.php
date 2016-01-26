@@ -27,6 +27,12 @@ class HomeBannerController extends Controller
         return $HomeBanners;
     }
 
+    public function showBanners()
+    {
+        $HomeBanners = HomeBanner::all()->where('status', 1)->where('show', 1);
+        return $HomeBanners;
+    }
+
     public function update($id) {
         $HomeBanner = HomeBanner::find($id);
         $HomeBanner->show = Request::input('show');

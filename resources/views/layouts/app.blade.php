@@ -113,6 +113,7 @@
 
 <!-- scrollme || onscroll parallax effect for category page  -->
 <script src="assets/js/jquery.scrollme.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
 <script type="text/javascript">
 
 
@@ -161,6 +162,7 @@
 
 </script>
 
+@yield('page-script')
 
 </body>
 </html>

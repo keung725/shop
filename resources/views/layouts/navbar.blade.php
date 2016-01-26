@@ -8,7 +8,7 @@
                     class="icon-bar"> </span> <span class="icon-bar"> </span></button>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-cart"><i
                     class="fa fa-shopping-cart colorWhite"> </i> <span
-                    class="cartRespons colorWhite"> Cart ($210.00) </span></button>
+                    class="cartRespons colorWhite"> 購物車 ($210.00) </span></button>
             <a class="navbar-brand " href="index.html"> <img src="images/logo-dark.png" alt="TSHOP"> </a>
 
             <!-- this part for mobile -->
@@ -21,130 +21,7 @@
             </div>
         </div>
 
-        <!-- this part is duplicate from cartMenu  keep it for mobile -->
-        <div class="navbar-cart  collapse">
-            <div class="cartMenu  col-lg-4 col-xs-12 col-md-4 ">
-                <div class="w100 miniCartTable scroll-pane">
-                    <table>
-                        <tbody>
-                        <tr class="miniCartProduct">
-                            <td style="width:20%" class="miniCartProductThumb">
-                                <div><a href="product-details.html"> <img src="images/product/3.jpg" alt="img"> </a>
-                                </div>
-                            </td>
-                            <td style="width:40%">
-                                <div class="miniCartDescription">
-                                    <h4><a href="product-details.html"> TSHOP T shirt Black </a></h4>
-                                    <span class="size"> 12 x 1.5 L </span>
-
-                                    <div class="price"><span> $8.80 </span></div>
-                                </div>
-                            </td>
-                            <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                            <td style="width:15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                            <td style="width:5%" class="delete"><a> x </a></td>
-                        </tr>
-                        <tr class="miniCartProduct">
-                            <td style="width:20%" class="miniCartProductThumb">
-                                <div><a href="product-details.html"> <img src="images/product/2.jpg" alt="img"> </a>
-                                </div>
-                            </td>
-                            <td style="width:40%">
-                                <div class="miniCartDescription">
-                                    <h4><a href="product-details.html"> TSHOP T shirt Black </a></h4>
-                                    <span class="size"> 12 x 1.5 L </span>
-
-                                    <div class="price"><span> $8.80 </span></div>
-                                </div>
-                            </td>
-                            <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                            <td style="width:15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                            <td style="width:5%" class="delete"><a> x </a></td>
-                        </tr>
-                        <tr class="miniCartProduct">
-                            <td style="width:20%" class="miniCartProductThumb">
-                                <div><a href="product-details.html"> <img src="images/product/5.jpg" alt="img"> </a>
-                                </div>
-                            </td>
-                            <td style="width:40%">
-                                <div class="miniCartDescription">
-                                    <h4><a href="product-details.html"> TSHOP T shirt Black </a></h4>
-                                    <span class="size"> 12 x 1.5 L </span>
-
-                                    <div class="price"><span> $8.80 </span></div>
-                                </div>
-                            </td>
-                            <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                            <td style="width:15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                            <td style="width:5%" class="delete"><a> x </a></td>
-                        </tr>
-                        <tr class="miniCartProduct">
-                            <td style="width:20%" class="miniCartProductThumb">
-                                <div><a href="product-details.html"> <img src="images/product/3.jpg" alt="img"> </a>
-                                </div>
-                            </td>
-                            <td style="width:40%">
-                                <div class="miniCartDescription">
-                                    <h4><a href="product-details.html"> TSHOP T shirt Black </a></h4>
-                                    <span class="size"> 12 x 1.5 L </span>
-
-                                    <div class="price"><span> $8.80 </span></div>
-                                </div>
-                            </td>
-                            <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                            <td style="width:15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                            <td style="width:5%" class="delete"><a> x </a></td>
-                        </tr>
-                        <tr class="miniCartProduct">
-                            <td style="width:20%" class="miniCartProductThumb">
-                                <div><a href="product-details.html"> <img src="images/product/3.jpg" alt="img"> </a>
-                                </div>
-                            </td>
-                            <td style="width:40%">
-                                <div class="miniCartDescription">
-                                    <h4><a href="product-details.html"> TSHOP T shirt Black </a></h4>
-                                    <span class="size"> 12 x 1.5 L </span>
-
-                                    <div class="price"><span> $8.80 </span></div>
-                                </div>
-                            </td>
-                            <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                            <td style="width:15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                            <td style="width:5%" class="delete"><a> x </a></td>
-                        </tr>
-                        <tr class="miniCartProduct">
-                            <td style="width:20%" class="miniCartProductThumb">
-                                <div><a href="product-details.html"> <img src="images/product/4.jpg" alt="img"> </a>
-                                </div>
-                            </td>
-                            <td style="width:40%">
-                                <div class="miniCartDescription">
-                                    <h4><a href="product-details.html"> TSHOP T shirt Black </a></h4>
-                                    <span class="size"> 12 x 1.5 L </span>
-
-                                    <div class="price"><span> $8.80 </span></div>
-                                </div>
-                            </td>
-                            <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                            <td style="width:15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                            <td style="width:5%" class="delete"><a> x </a></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!--/.miniCartTable-->
-
-                <div class="miniCartFooter  miniCartFooterInMobile text-right">
-                    <h3 class="text-right subtotal"> Subtotal: $210 </h3>
-                    <a class="btn btn-sm btn-danger" href="cart.html"> <i class="fa fa-shopping-cart"> </i> VIEW CART
-                    </a> <a href="checkout-0.html"
-                            class="btn btn-sm btn-primary"> CHECKOUT </a></div>
-                <!--/.miniCartFooter-->
-
-            </div>
-            <!--/.cartMenu-->
-        </div>
-        <!--/.navbar-cart-->
+        @include('layouts.minicart')
 
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -254,9 +131,9 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li class="hide-xs"><a class="btn btn-nobg  search-trigger"><i class="fa fa-search"> </i></a></li>
-                <li><a data-target="#ModalLogin" data-toggle="modal"> Login <i class="fa fa-user"></i> </a></li>
-                <li><a data-target="#ModalSignup" data-toggle="modal"> Register <i class="fa fa-user"></i> </a></li>
-                <li class="hide-xs cart-sidebar-toggle"><a> Cart <i
+                <li><a data-target="#ModalLogin" data-toggle="modal"> 會員登入 <i class="fa fa-user"></i> </a></li>
+                <li><a data-target="#ModalSignup" data-toggle="modal"> 會員註冊 <i class="fa fa-user"></i> </a></li>
+                <li class="hide-xs cart-sidebar-toggle"><a> 購物車 <i
                         class="glyphicon-shopping-cart glyphicon"></i> </a></li>
             </ul>
 

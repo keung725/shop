@@ -44,6 +44,11 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('password/reset', 'Auth\PasswordController@reset');
     Route::get('logout', 'Auth\AuthController@logout');
 
+    Route::group(array( 'prefix' => 'api', 'namespace' => 'Api'), function () {
+        Route::get('homebanners/show', 'HomeBannerController@showBanners');
+
+    });
+
 
 
 

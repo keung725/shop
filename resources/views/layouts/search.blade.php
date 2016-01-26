@@ -9,20 +9,18 @@
 
                 <!-- Appended Input-->
                 <div class="control-group">
-                    <label class="control-label">Search into the shop..</label>
+                    <label class="control-label">產品搜尋</label>
 
                     <div class="controls">
                         <div class="search " role="search" id="mySearch">
-                            <input class="form-control" placeholder="Start typing " type="search">
+                            <input class="form-control"  type="search">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="button">
                                     <span class="glyphicon glyphicon-search"></span>
-                                    <span class="sr-only">Search</span>
+                                    <span class="sr-only">搜尋</span>
                                 </button>
                             </span>
                         </div>
-                        <!-- for error or message -->
-                        <p class="help-block hide">help</p>
                     </div>
                 </div>
 

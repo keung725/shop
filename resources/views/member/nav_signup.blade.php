@@ -4,52 +4,54 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button>
-                <h3 class="modal-title-site text-center"> REGISTER </h3>
+                <h3 class="modal-title-site text-center"> 會員註冊 </h3>
             </div>
             <div class="modal-body">
                 {!! csrf_field() !!}
-                <div class="control-group"><a class="fb_button btn  btn-block btn-lg " href="#"> SIGNUP WITH
-                    FACEBOOK </a></div>
-                <h5 style="padding:10px 0 10px 0;" class="text-center"> OR </h5>
+                <div class="control-group"><a class="fb_button btn  btn-block btn-lg " href="#">FACEBOOK 登入</a></div>
+                <h5 style="padding:10px 0 10px 0;" class="text-center"> 或 </h5>
 
-                <div class="form-group reg-email">
-                    <div>
-                        <input name="reg" class="form-control input" size="20" placeholder="Enter Email" type="text"  >
-                    </div>
+                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+
+                    <input type="email" class="form-control" name="email" placeholder="電子郵件" value="{{ old('email') }}">
+
+                    @if ($errors->has('email'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
                 </div>
-                <div class="form-group reg-password">
-                    <div>
-                        <input name="password" class="form-control input" size="20" placeholder="Password"
-                               type="password">
-                    </div>
+
+                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                    <input type="password" class="form-control" name="password" placeholder="密碼">
+
+                    @if ($errors->has('password'))
+                        <span class="help-block">
+                                <strong>{{ $errors->first('password') }}</strong>
+                            </span>
+                    @endif
                 </div>
-                <div class="form-group reg-password">
-                    <div>
-                        <input name="password_confirmation" class="form-control input" size="20" placeholder="Confirm Password"
-                               type="password">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div>
-                        <div class="checkbox login-remember">
-                            <label>
-                                <input name="rememberme" id="rememberme" value="forever" checked="checked"
-                                       type="checkbox">
-                                Remember Me </label>
-                        </div>
-                    </div>
+
+                <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                        <input type="password" class="form-control" name="password_confirmation" placeholder="重複輸入密碼">
+
+                        @if ($errors->has('password_confirmation'))
+                            <span class="help-block">
+                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                    </span>
+                        @endif
                 </div>
                 <div>
                     <div>
-                        <input name="submit" class="btn  btn-block btn-lg btn-primary" value="REGISTER" type="submit">
+                        <input name="submit" class="btn  btn-block btn-lg btn-primary" value="註冊" type="submit">
                     </div>
                 </div>
                 <!--userForm-->
 
             </div>
             <div class="modal-footer">
-                <p class="text-center"> Already member? <a data-toggle="modal" data-dismiss="modal" href="#ModalLogin">
-                    Sign in </a></p>
+                <p class="text-center"><a data-toggle="modal" data-dismiss="modal" href="#ModalLogin">
+                    會員登入 </a></p>
             </div>
         </div>
         <!-- /.modal-content -->
