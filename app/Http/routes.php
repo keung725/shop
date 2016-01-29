@@ -65,21 +65,15 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('users', 'UsersController@index');
         Route::get('users/{id?}', 'UsersController@edit');
         Route::post('users/{id?}','UsersController@update');
-        Route::get('homebanner', 'HomeBannerController@listView');
-        Route::get('homebanner/recover', 'HomeBannerController@recoverView');
-        Route::get('homebanner/create', 'HomeBannerController@create');
-        Route::post('homebanner/store', 'HomeBannerController@store');
-
-    });
-
-    Route::group(array( 'prefix' => 'api', 'namespace' => 'Api', 'middleware' => ['role:siteowner|admin']), function () {
-        Route::get('users', 'UsersController@index');
-        Route::get('users/{id?}', 'UsersController@edit');
-        Route::get('roles', 'RolesController@index');
-        Route::get('roles/{id?}', 'RolesController@edit');
         Route::get('homebanners', 'HomeBannerController@index');
-        Route::put('homebanner/{id?}', 'HomeBannerController@update');
+        Route::get('homebanners/available', 'HomeBannerController@availableIndex');
+        Route::get('homebanners/recover', 'HomeBannerController@recoverView');
         Route::get('homebanners/recovers', 'HomeBannerController@recoverIndex');
+        Route::get('homebanners/create', 'HomeBannerController@create');
+        Route::post('homebanners/store', 'HomeBannerController@store');
+        Route::get('homebanners/{id?}', 'HomeBannerController@edit');
+        Route::post('homebanners/{id?}', 'HomeBannerController@update');
 
     });
+
 });

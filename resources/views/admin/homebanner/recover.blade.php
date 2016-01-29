@@ -65,7 +65,7 @@
 
             $scope.init = function() {
                 $scope.loading = true;
-                $http.get('/api/homebanners/recovers').
+                $http.get('/admin/homebanners/recovers').
                 success(function(data, status, headers, config) {
                     $scope.HomeBanners = data;
                     $scope.loading = false;
@@ -76,7 +76,7 @@
             $scope.updateHomeBanner = function(HomeBanner) {
                 $scope.loading = true;
 
-                $http.put('/api/homebanner/' + HomeBanner.id, {
+                $http.post('/admin/homebanners/' + HomeBanner.id, {
                     status: HomeBanner.status,
                     ordering: HomeBanner.ordering,
                     show: HomeBanner.show,

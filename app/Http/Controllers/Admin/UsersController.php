@@ -16,7 +16,8 @@ class UsersController extends Controller
 {
     public function index()
     {
-        return view('admin.users.index', compact('users'));
+        $users = User::with('roles')->get();
+        return view('admin.users.index', compact('users', 'roles'));
     }
 
     public function edit($id)

@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Home Banner Create')
+@section('title', 'Home Banner Edit')
 
 @section('admin_content')
 
@@ -13,17 +13,18 @@
                     <h3 class="box-title">@yield('title')</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                    <form class="form" id="upload" enctype="multipart/form-data" method="post" action="{{ url('admin/homebanners/store') }}" autocomplete="off">
-                            <div id="validation-errors"></div>
-                            <div id="success_message"></div>
+                    <form class="form" id="upload" enctype="multipart/form-data" method="post" action="{{ url('admin/homebanners/'.$HomeBanner->id)}}" autocomplete="off">
+                        <div id="validation-errors"></div>
+                        <div id="success_message"></div>
                         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                         <div class="form-group">
                             <label>Home Banner</label>
+                            <img id="image_banner" src="{{ URL::asset($HomeBanner->image_path)}}" class="img-responsive" style="width:250px;"/>
                             <input type="file"  class="form-control" name="image" id="image" />
                         </div>
                         <div class="form-group">
                             <label>Link Path</label>
-                            <input type="text" class="form-control" id="link_path" name="link_path">
+                            <input type="text" class="form-control" id="link_path" name="link_path" value="{!! $HomeBanner->link_path !!}">
                         </div>
                         <div class="form-group">
                             <div class="col-lg-10 col-lg-offset-2">
@@ -44,8 +45,7 @@
             var options = {
                 beforeSubmit:  showRequest,
                 success:       showResponse,
-                dataType: 'json',
-                clearForm: true
+                dataType: 'json'
             };
             $('#upload').ajaxForm(options);
 
@@ -71,7 +71,9 @@
                 $("#validation-errors").show().delay(2000).fadeOut();
             } else {
                 var success = response.message;
+                var image_location = response.file;
 
+                $("#image_banner").attr("src", image_location);
                 $("#success_message").append('<p class="alert alert-success"><strong>'+ success +'</strong></p>');
                 $("#success_message").show().delay(2000).fadeOut();
             }

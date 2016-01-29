@@ -94,7 +94,7 @@
 <script src="{{ URL::asset('backend/plugins/datatables/jquery.dataTables.js') }}"></script>
 <script src="{{ URL::asset('backend/plugins/datatables/dataTables.bootstrap.js') }}"></script>
 <script src="{{ URL::asset('backend/plugins/jQuery/jquery.form.js') }}"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+<script src="{{ URL::asset('backend/dist/js/angular.min.js') }}"></script>
 <script>
     var dataTable = function () {
         $('#dataListingTable').DataTable({
