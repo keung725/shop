@@ -8,7 +8,7 @@
                     class="icon-bar"> </span> <span class="icon-bar"> </span></button>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-cart"><i
                     class="fa fa-shopping-cart colorWhite"> </i> <span
-                    class="cartRespons colorWhite"> 購物車 ($210.00) </span></button>
+                    class="cartRespons colorWhite">($210.00)</span></button>
             <a class="navbar-brand " href="index.html"> <img src="images/logo-dark.png" alt="TSHOP"> </a>
 
             <!-- this part for mobile -->
