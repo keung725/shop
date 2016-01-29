@@ -28,23 +28,25 @@
                                     <th>Ordering</th>
                                     <th>Create At</th>
                                     <th>Delete?</th>
+                                    <th>Edit</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat='HomeBanner in HomeBanners'>
-                                        <td><% HomeBanner.id %></td>
-                                        <td><img ng-src="{{ URL::asset('<% HomeBanner.image_path %>')}}" class="img-responsive" style="width:250px;"/></td>
-                                        <td>
-                                            <input type="checkbox" ng-true-value="1" ng-false-value="'0'" ng-model="HomeBanner.show" ng-change="updateHomeBanner(HomeBanner)">
-                                        </td>
-                                        <td>
-                                            <input type="text" class="form-control" id="ordering" ng-model="HomeBanner.ordering" onClick="this.setSelectionRange(0, this.value.length)" size="3" ng-change="updateHomeBanner(HomeBanner)">
-                                        </td>
-                                        <td><% HomeBanner.created_at %></td>
-                                        <td>
-                                            <input type="checkbox" ng-true-value="4" ng-false-value="1" ng-model="HomeBanner.status" ng-change="deleteHomeBanner(HomeBanner)">
-                                        </td>
-                                    </tr>
+                                <tr ng-repeat='HomeBanner in HomeBanners'>
+                                    <td><% HomeBanner.id %></td>
+                                    <td><img ng-src="{{ URL::asset('<% HomeBanner.image_path %>')}}" class="img-responsive" style="width:250px;"/></td>
+                                    <td>
+                                        <input type="checkbox" ng-true-value="1" ng-false-value="'0'" ng-model="HomeBanner.show" ng-change="updateHomeBanner(HomeBanner)">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" id="ordering" ng-model="HomeBanner.ordering" onClick="this.setSelectionRange(0, this.value.length)" size="3" ng-change="updateHomeBanner(HomeBanner)">
+                                    </td>
+                                    <td><% HomeBanner.created_at %></td>
+                                    <td>
+                                        <input type="checkbox" ng-true-value="4" ng-false-value="1" ng-model="HomeBanner.status" ng-change="deleteHomeBanner(HomeBanner)">
+                                    </td>
+                                    <td><a href="/admin/homebanners/<% HomeBanner.id %>">edit</a></td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div><!-- /.box-body -->
@@ -69,7 +71,7 @@
 
             $scope.init = function() {
                 $scope.loading = true;
-                $http.get('/api/homebanners').
+                $http.get('/admin/homebanners/available').
                 success(function(data, status, headers, config) {
                     $scope.HomeBanners = data;
                     $scope.loading = false;
@@ -81,7 +83,7 @@
             $scope.updateHomeBanner = function(HomeBanner) {
                 $scope.loading = true;
                 $("#success_message").hide().empty();
-                $http.put('/api/homebanner/' + HomeBanner.id, {
+                $http.post('/admin/homebanners/' + HomeBanner.id, {
                     status: HomeBanner.status,
                     ordering: HomeBanner.ordering,
                     show: HomeBanner.show,
@@ -96,7 +98,7 @@
             $scope.deleteHomeBanner = function(HomeBanner) {
                 $scope.loading = true;
 
-                $http.put('/api/homebanner/' + HomeBanner.id, {
+                $http.post('/admin/homebanners/' + HomeBanner.id, {
                     status: HomeBanner.status,
                 }).success(function(data, status, headers, config) {
                     $scope.HomeBanner = data;

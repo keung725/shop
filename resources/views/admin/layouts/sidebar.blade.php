@@ -27,9 +27,9 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ url('/admin/homebanner') }}"><i class="fa fa-circle-o"></i> All Home Banner</a></li>
-                    <li><a href="{{ url('/admin/homebanner/create') }}"><i class="fa fa-circle-o"></i> Create Home Banner</a></li>
-                    <li><a href="{{ url('/admin/homebanner/recover') }}"><i class="fa fa-trash-o"></i> Recover Home Banner</a></li>
+                    <li><a href="{{ url('/admin/homebanners') }}"><i class="fa fa-circle-o"></i> All Home Banner</a></li>
+                    <li><a href="{{ url('/admin/homebanners/create') }}"><i class="fa fa-circle-o"></i> Create Home Banner</a></li>
+                    <li><a href="{{ url('/admin/homebanners/recover') }}"><i class="fa fa-trash-o"></i> Recover Home Banner</a></li>
 
                 </ul>
             </li>

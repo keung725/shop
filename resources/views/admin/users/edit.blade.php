@@ -4,7 +4,7 @@
 
 @section('admin_content')
 
-    <div class="content-wrapper" ng-app="Users" ng-controller="UsersController" ng-init="showUsers({{$user->id}})">
+    <div class="content-wrapper">
 
         @include('admin.layouts.breadcrumb')
                 <!-- Main content -->
@@ -21,18 +21,22 @@
                         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" class="form-control" id="name" name="name" ng-model="Users.name">
+                            <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}">
+
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" class="form-control" id="email" name="email" ng-model="Users.email"  disabled>
+                            <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}" disabled>
+
                         </div>
                         <div class="form-group">
                             <label>Role</label>
                             <select class="form-control" id="role" name="role[]" multiple>
-                                <option ng-repeat="Roles in Users.roles" value="<% Roles.id %>"
-                                        ng-selected="<% Roles.selected %>"><% Roles.display_name %>
-                                </option>
+                                @foreach($roles as $role)
+                                    <option value="{!! $role->id !!}"  @if(in_array($role->id, $selectedRoles))
+                                    selected="selected" @endif >{!! $role->display_name !!}
+                                    </option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
@@ -51,29 +55,6 @@
 
 @section('page-script')
     <script type="text/javascript">
-        var app = angular.module('Users', [], function($interpolateProvider) {
-            $interpolateProvider.startSymbol('<%');
-            $interpolateProvider.endSymbol('%>');
-        });
-
-        app.controller('UsersController', function($scope, $http) {
-
-            $scope.Users = [];
-            $scope.loading = false;
-
-            $scope.showUsers = function(id) {
-                $scope.loading = true;
-                $http.get('/api/users/'+ id ).
-                success(function(data, status, headers, config) {
-                    //console.log(data);
-                    $scope.Users = data;
-                    $scope.loading = false;
-
-                });
-            }
-
-        });
-
         $(document).ready(function() {
             var options = {
                 beforeSubmit:  showRequest,

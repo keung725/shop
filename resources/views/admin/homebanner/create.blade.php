@@ -13,13 +13,17 @@
                     <h3 class="box-title">@yield('title')</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                    <form class="form" id="upload" enctype="multipart/form-data" method="post" action="{{ url('admin/homebanner/store') }}" autocomplete="off">
+                    <form class="form" id="upload" enctype="multipart/form-data" method="post" action="{{ url('admin/homebanners/store') }}" autocomplete="off">
                             <div id="validation-errors"></div>
                             <div id="success_message"></div>
                         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                         <div class="form-group">
                             <label>Home Banner</label>
                             <input type="file"  class="form-control" name="image" id="image" />
+                        </div>
+                        <div class="form-group">
+                            <label>Link Path</label>
+                            <input type="text" class="form-control" id="link_path" name="link_path">
                         </div>
                         <div class="form-group">
                             <div class="col-lg-10 col-lg-offset-2">
@@ -67,6 +71,7 @@
                 $("#validation-errors").show().delay(2000).fadeOut();
             } else {
                 var success = response.message;
+
                 $("#success_message").append('<p class="alert alert-success"><strong>'+ success +'</strong></p>');
                 $("#success_message").show().delay(2000).fadeOut();
             }
