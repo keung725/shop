@@ -22,6 +22,10 @@
                             <input type="file"  class="form-control" name="image" id="image" />
                         </div>
                         <div class="form-group">
+                            <label>title</label>
+                            <input type="text" class="form-control" id="title" name="title">
+                        </div>
+                        <div class="form-group">
                             <label>Link Path</label>
                             <input type="text" class="form-control" id="link_path" name="link_path">
                         </div>
