@@ -19,19 +19,34 @@ class HomeBannerController extends Controller
         return view('admin.homebanner.create');
     }
 
-    public function listView()
+    public function index()
     {
+        $HomeBanners = HomeBanner::all()->where('status', 1);
         return view('admin.homebanner.index', compact('HomeBanners'));
+    }
+
+    public function availableIndex()
+    {
+        $HomeBanners = HomeBanner::all()->where('status', 1);
+        return $HomeBanners;
+    }
+
+    public function recoverIndex()
+    {
+        $HomeBanners = HomeBanner::all()->where('status', 4);
+        return $HomeBanners;
     }
 
     public function recoverView()
     {
+        $HomeBanners = HomeBanner::all()->where('status', 4);
         return view('admin.homebanner.recover', compact('HomeBanners'));
     }
 
     public function store(){
+        $input = Input::all();
+
         $file = Input::file('image');
-        $input = array('image' => $file);
         $rules = array(
             'image' => 'required|image'
         );
@@ -48,6 +63,7 @@ class HomeBannerController extends Controller
 
             $create = HomeBanner::create([
                 'show' => 0,
+                'link_path' => Input::get('link_path'),
             ]);
 
             //when create a user, it will attach a member role
@@ -62,6 +78,53 @@ class HomeBannerController extends Controller
                 ->update(['image_path' => $destinationPath . $newFileName]);
 
             return Response::json(['success' => true, 'message'=>  'A Home Banner has been created!','file' => asset($destinationPath.$filename)]);
+        }
+    }
+
+    public function edit($id)
+    {
+        $HomeBanner = HomeBanner::whereId($id)->firstOrFail();
+        return view('admin.homebanner.edit', compact('HomeBanner'));
+    }
+
+    public function update($id) {
+        $HomeBanner = HomeBanner::find($id);
+
+        if(Input::has('show')) {
+            $HomeBanner->show = Input::get('show');
+        }
+        if(Input::has('ordering')) {
+            $HomeBanner->ordering = Input::get('ordering');
+        }
+        if(Input::has('status')) {
+            $HomeBanner->status = Input::get('status');
+        }
+        if(Input::has('link_path')) {
+            $HomeBanner->link_path = Input::get('link_path');
+        }
+        if(Input::hasfile('image')){
+            $file = Input::file('image');
+
+            $destinationPath = 'uploads/banners/';
+            $filename = $file->getClientOriginalName();
+            Input::file('image')->move($destinationPath, $filename);
+
+            $ext = substr($filename, strrpos($filename, "."));
+            $newFileName = basename($filename, $ext) . "_" . $HomeBanner->id . "_" . date("Ymdhis")   . $ext;
+
+            rename($destinationPath . $filename, $destinationPath . $newFileName);
+
+            HomeBanner::where('id', $HomeBanner->id)
+                ->update(['image_path' => $destinationPath . $newFileName]);
+
+        }
+
+        $HomeBanner->save();
+
+        if(Input::hasfile('image')) {
+            return Response::json(['success' => true, 'message' => 'Home Banner has been updated!', 'file' => asset($destinationPath . $newFileName)]);
+        }else{
+            return Response::json(['success' => true, 'message' => 'Home Banner has been updated!']);
         }
     }
 }

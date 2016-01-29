@@ -4,7 +4,7 @@
 
 @section('admin_content')
 
-    <div class="content-wrapper" ng-app="Roles" ng-controller="RolesController" ng-init="showRoles({{$role->id}})">
+    <div class="content-wrapper">
 
         @include('admin.layouts.breadcrumb')
                 <!-- Main content -->
@@ -21,15 +21,15 @@
                         <div id="success_message"></div>
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" class="form-control" id="name" name="name" ng-model="Roles.name" >
+                            <input type="text" class="form-control" id="name" name="name" value="{!! $role->name !!}" >
                         </div>
                         <div class="form-group">
                             <label>Display Name</label>
-                            <input type="display_name" class="form-control" id="display_name" name="display_name" ng-model="Roles.display_name">
+                            <input type="display_name" class="form-control" id="display_name" name="display_name" value="{!! $role->display_name !!}">
                         </div>
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea class="form-control" rows="3" id="description" name="description" ng-model="Roles.description"></textarea>
+                            <textarea class="form-control" rows="3" id="description" name="description" >{!! $role->description !!}</textarea>
                         </div>
                         <div class="form-group">
                             <div class="col-lg-10 col-lg-offset-2">
@@ -47,29 +47,6 @@
 
 @section('page-script')
     <script type="text/javascript">
-        var app = angular.module('Roles', [], function($interpolateProvider) {
-            $interpolateProvider.startSymbol('<%');
-            $interpolateProvider.endSymbol('%>');
-        });
-
-        app.controller('RolesController', function($scope, $http) {
-
-            $scope.Roles = [];
-            $scope.loading = false;
-
-            $scope.showRoles= function(id) {
-                $scope.loading = true;
-                $http.get('/api/roles/'+ id ).
-                success(function(data, status, headers, config) {
-                    //console.log(data);
-                    $scope.Roles = data;
-                    $scope.loading = false;
-
-                });
-            }
-
-        });
-
         $(document).ready(function() {
             var options = {
                 beforeSubmit:  showRequest,

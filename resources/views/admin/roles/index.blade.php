@@ -28,13 +28,15 @@
                             </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat='Role in Roles'>
-                                    <td><% Role.id %></td>
-                                    <td><% Role.name %></td>
-                                    <td><% Role.display_name %></td>
-                                    <td><% Role.description %></td>
-                                    <td><a href="/admin/roles/<% Role.id %>">edit</a></td>
-                                </tr>
+                                @foreach($roles as $role)
+                                    <tr>
+                                        <td>{!! $role->id !!} </td>
+                                        <td>{!! $role->name !!}</td>
+                                        <td>{!! $role->display_name !!} </td>
+                                        <td>{!! $role->description !!}</td>
+                                        <td><a href="/admin/roles/{!! $role->id !!}">edit</a></td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div><!-- /.box-body -->
@@ -45,33 +47,9 @@
 </div>
 @endsection
 
+
 @section('page-script')
     <script type="text/javascript">
-        var app = angular.module('Roles', [], function($interpolateProvider) {
-            $interpolateProvider.startSymbol('<%');
-            $interpolateProvider.endSymbol('%>');
-        });
-
-        app.controller('RolesController', function($scope, $http) {
-
-            $scope.Roles = [];
-            $scope.loading = false;
-
-            $scope.init = function() {
-                $scope.loading = true;
-                $http.get('/api/roles').
-                success(function(data, status, headers, config) {
-                    $scope.Roles = data;
-                    $scope.loading = false;
-                    setTimeout(dataTable, 100);
-                });
-            }
-
-            $scope.init();
-
-        });
-
-
-
+        dataTable();
     </script>
 @stop
