@@ -25,7 +25,9 @@
 
 
 Route::group(['middleware' => 'web'], function () {
-    Route::get('/', 'HomeController@home');
+    Route::get('/', function () {
+        return view('home');
+    });
 
     // Authentication Routes...
     Route::get('login', 'Auth\AuthController@showLoginForm');
@@ -42,7 +44,10 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('password/reset', 'Auth\PasswordController@reset');
     Route::get('logout', 'Auth\AuthController@logout');
 
+    Route::group(array( 'prefix' => 'api', 'namespace' => 'Api'), function () {
+        Route::get('homebanners/show', 'HomeBannerController@showBanners');
 
+    });
 
 
 
