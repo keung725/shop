@@ -1,11 +1,12 @@
 <section class="slider-hero-wrapper">
+
     <div class="slider-hero scrollme">
         <a class="arrow-left" href="#"></a> <a class="arrow-right" href="#"></a>
 
         <div class="swiper-container swiper-container-horizontal">
-            <div class="swiper-wrapper" >
+            <div class="swiper-wrapper">
                 @foreach($HomeBanners as $HomeBanner)
-                <div class="swiper-slide slider-hero-bg " style="background-image: url({{$HomeBanner->image_path}})">
+                <div class="swiper-slide slider-hero-bg" style="background-image: url({{$HomeBanner->image_path}})">
                     <!-- Any HTML content of the first slide goes here -->
                     <div class="slider-hero-content has-overly-shade hw100">
                         <div class="display-table hw100">
@@ -25,22 +26,21 @@
                                             {!!html_entity_decode($HomeBanner->title)!!}
                                         </h2>
 
+                                        <div class="slide-caption-text">
+                                        <a href="{{$HomeBanner->link_path}}" class="btn btn-stroke lite"> 查看 <i class="fa fa-caret-right"></i> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+            </div>
 
-<div class="slide-caption-text">
-<a href="{{$HomeBanner->link_path}}" class="btn btn-stroke lite"> 查看 <i class="fa fa-caret-right"></i> </a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-@endforeach
-</div>
-
-<div class="swiper-pagination swiper-pagination-v"></div>
-</div>
-</div>
+            <div class="swiper-pagination swiper-pagination-v"></div>
+        </div>
+    </div>
 </section>
 <!-- /.slider-hero-wrapper  -->
 

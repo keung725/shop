@@ -25,16 +25,8 @@
 
 
 Route::group(['middleware' => 'web'], function () {
+
     Route::get('/', 'HomeController@home');
-
-    // Authentication Routes...
-    Route::get('login', 'Auth\AuthController@showLoginForm');
-    Route::post('login', 'Auth\AuthController@login');
-
-    // Registration Routes...
-    Route::get('register', 'Auth\AuthController@showRegistrationForm');
-    Route::post('register', 'Auth\AuthController@register');
-
 
     // Password Reset Routes...
     Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
@@ -43,6 +35,10 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('logout', 'Auth\AuthController@logout');
 
 
+
+    Route::post('register', 'UsersController@register');
+    Route::post('login', 'UsersController@login');
+    Route::get('profile', 'UsersController@profile');
 
 
 
