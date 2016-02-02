@@ -23,6 +23,10 @@
                             <input type="file"  class="form-control" name="image" id="image" />
                         </div>
                         <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" class="form-control" id="title" name="title" value="{!! $HomeBanner->title !!}">
+                        </div>
+                        <div class="form-group">
                             <label>Link Path</label>
                             <input type="text" class="form-control" id="link_path" name="link_path" value="{!! $HomeBanner->link_path !!}">
                         </div>

@@ -25,18 +25,8 @@
 
 
 Route::group(['middleware' => 'web'], function () {
-    Route::get('/', function () {
-        return view('home');
-    });
 
-    // Authentication Routes...
-    Route::get('login', 'Auth\AuthController@showLoginForm');
-    Route::post('login', 'Auth\AuthController@login');
-
-    // Registration Routes...
-    Route::get('register', 'Auth\AuthController@showRegistrationForm');
-    Route::post('register', 'Auth\AuthController@register');
-
+    Route::get('/', 'HomeController@home');
 
     // Password Reset Routes...
     Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
@@ -44,10 +34,11 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('password/reset', 'Auth\PasswordController@reset');
     Route::get('logout', 'Auth\AuthController@logout');
 
-    Route::group(array( 'prefix' => 'api', 'namespace' => 'Api'), function () {
-        Route::get('homebanners/show', 'HomeBannerController@showBanners');
 
-    });
+
+    Route::post('register', 'UsersController@register');
+    Route::post('login', 'UsersController@login');
+    Route::get('profile', 'UsersController@profile');
 
 
 

@@ -61,11 +61,12 @@
         paginationClickable: '.swiper-pagination',
         nextButton: '.arrow-right',
         prevButton: '.arrow-left',
-        // effect: 'cube',
+// effect: 'cube',
         keyboardControl: true,
         parallax: true,
         speed: 600,
-        spaceBetween: 0
+        spaceBetween: 0,
+        autoplay:3000
     });
 
 
@@ -113,7 +114,8 @@
 
 <!-- scrollme || onscroll parallax effect for category page  -->
 <script src="assets/js/jquery.scrollme.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+<script src="{{ URL::asset('backend/plugins/jQuery/jquery.form.js') }}"></script>
+
 <script type="text/javascript">
 
 
@@ -163,6 +165,10 @@
 </script>
 
 @yield('page-script')
+
+@yield('login-script')
+
+@yield('register-script')
 
 </body>
 </html>
