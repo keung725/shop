@@ -15,9 +15,10 @@ use App\HomeBanner;
 
 class HomeController extends Controller
 {
+
     public function home()
     {
-        $HomeBanners = HomeBanner::all()->where('status', 1)->where('show', 1);
+        $HomeBanners = DB::table('home_banners')->where('status', 1)->where('show', 1)->orderBy('ordering', 'asc')->get();
         return view('home', compact('HomeBanners'));
     }
 

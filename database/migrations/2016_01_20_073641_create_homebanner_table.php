@@ -19,6 +19,7 @@ class CreateHomebannerTable extends Migration
             $table->tinyInteger('show')->default(0);
             $table->tinyInteger('status')->default(1);
             $table->string('link_path');
+            $table->string('title');
             $table->timestamps();
         });
     }

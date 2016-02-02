@@ -48,7 +48,9 @@ class HomeBannerController extends Controller
 
         $file = Input::file('image');
         $rules = array(
-            'image' => 'required|image'
+            'image' => 'required|image',
+            'link_path' => 'required',
+            'title' => 'required',
         );
         $validator = Validator::make($input, $rules);
         if ( $validator->fails() )
@@ -64,6 +66,7 @@ class HomeBannerController extends Controller
             $create = HomeBanner::create([
                 'show' => 0,
                 'link_path' => Input::get('link_path'),
+                'title' => Input::get('title'),
             ]);
 
             //when create a user, it will attach a member role
@@ -102,6 +105,10 @@ class HomeBannerController extends Controller
         if(Input::has('link_path')) {
             $HomeBanner->link_path = Input::get('link_path');
         }
+        if(Input::has('title')) {
+            $HomeBanner->title = Input::get('title');
+        }
+
         if(Input::hasfile('image')){
             $file = Input::file('image');
 

@@ -9,7 +9,7 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-cart"><i
                     class="fa fa-shopping-cart colorWhite"> </i> <span
                     class="cartRespons colorWhite">($210.00)</span></button>
-            <a class="navbar-brand " href="index.html"> <img src="images/logo-dark.png" alt="TSHOP"> </a>
+            <a class="navbar-brand " href="/"> <img src="images/logo-dark.png" alt="KCBRoom"> </a>
 
             <!-- this part for mobile -->
             <div class="search-box pull-right hidden-lg hidden-md hidden-sm">
@@ -25,7 +25,6 @@
 
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="#"> Home </a></li>
                 <li class=" "><a href="#"> New </a></li>
 
                 <!-- change width of megamenu = use class > megamenu-fullwidth, megamenu-60width, megamenu-40width -->
@@ -131,10 +130,24 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li class="hide-xs"><a class="btn btn-nobg  search-trigger"><i class="fa fa-search"> </i></a></li>
-                <li><a data-target="#ModalLogin" data-toggle="modal"> 會員登入 <i class="fa fa-user"></i> </a></li>
-                <li><a data-target="#ModalSignup" data-toggle="modal"> 會員註冊 <i class="fa fa-user"></i> </a></li>
-                <li class="hide-xs cart-sidebar-toggle"><a> 購物車 <i
-                        class="glyphicon-shopping-cart glyphicon"></i> </a></li>
+                @if (Auth::check())
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa fa-user"></i> 會員中心<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            @if(Auth::user()->hasRole(['siteowner', 'admin']))
+                                <li><a href="{{ url('/admin') }}">管理頁面</a></li>
+                            @endif
+                                <li> <a href="{{ url('/profile') }}">用戶資料</a></li>
+                                <li> <a href="{{ url('/logout') }}">登出</a></li>
+                        </ul>
+                    </li>
+                @else
+                    <li><a data-target="#ModalLogin" data-toggle="modal"><i class="fa fa-user"></i> 登入</a></li>
+                    <li><a data-target="#ModalSignup" data-toggle="modal"><i class="fa fa-user-plus"></i> 註冊</a></li>
+                @endif
+
+
+                <li class="hide-xs cart-sidebar-toggle"><a><i
+                                class="glyphicon-shopping-cart glyphicon"></i> 購物車</a></li>
             </ul>
 
         </div>
