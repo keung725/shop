@@ -14,66 +14,45 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-9 col-md-9 col-sm-7">
+        <div class="col-lg-10 col-md-10 col-sm-9">
             <h1 class="section-title-inner"><span><i
                             class="glyphicon glyphicon-user"></i>用戶資料</span></h1>
-
-            <div class="row userInfo">
-                <div class="col-lg-12">
-                    <h2 class="block-title-2"> 如需要更改資料，必需填寫個人密碼。 如不需重設密碼，請不要填寫新密碼及重複新密碼欄位。</h2>
-
-                    <p class="required"><sup>*</sup> 必填項目</p>
+                <div class="userInfo">
+                    <h2 class="block-title-2"></h2>
                 </div>
-                <form>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="form-group required">
-                            <label for="InputName">姓名 </label>
-                            <input type="text" class="form-control" id="name"  name="name "placeholder="陳大文">
-                        </div>
-                        <div class="form-group">
-                            <label for="InputEmail"> 電子郵件 </label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="xyz@hotmail.com">
-                        </div>
+                <form class="form" id="dataForm" method="post" action="{{ url('/profile')}}">
+                    <div id="success_message"></div>
+                    <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+                    <div class="form-group">
+                        <label for="role">會員角色</label> <br/>
+                        @foreach($user->roles as $role)
+                            {!! $role->display_name !!} <br/>
+                        @endforeach
                     </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="form-group required">
-                            <label for="InputPasswordCurrent"><sup>*</sup> 密碼 </label>
-                            <input type="password" name="current_password" class="form-control"
-                                   id="current_password">
-                        </div>
-                        <div class="form-group required">
-                            <label for="InputPasswordnew"> 新密碼 </label>
-                            <input type="password" name="new_password" class="form-control" id="new_password">
-                        </div>
-                        <div class="form-group required">
-                            <label for="InputPasswordnewConfirm"> 重複新密碼 </label>
-                            <input type="password" name="new_password_confirm" class="form-control"
-                                   id="new_password_confirm">
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="form-group ">
-                            <p class=" clearfix">
-                                <input type="checkbox" value="1" name="newsletter" id="newsletter" checked>
-                                <label for="newsletter">收取推廣電子郵件</label>
-                            </p>
 
-                        </div>
+                    <div class="form-group">
+                        <label for="InputName">姓名 </label>
+                        <input type="text" class="form-control" id="name"  name="name" placeholder="陳大文" value="{!! $user->name !!}">
                     </div>
-                    <div class="col-lg-12">
-                        <button type="submit" class="btn   btn-primary"><i class="fa fa-save"></i> &nbsp; 儲存</button>
+                    <div class="form-group">
+                        <label for="InputEmail"> 電子郵件 </label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="xyz@hotmail.com" value="{!! $user->email !!}">
+                        <div id="validation-errors-email"></div>
                     </div>
+                    <div class="form-group ">
+                        <p class=" clearfix">
+                            <input type="checkbox" value="1" name="newsletter" id="newsletter" checked>
+                            <label for="newsletter">收取推廣電子郵件</label>
+                        </p>
+                    </div>
+                    <button type="submit" class="btn   btn-primary"><i class="fa fa-save"></i> &nbsp; 儲存</button>
                 </form>
                 <div class="col-lg-12 clearfix">
                     <ul class="pager">
                         <li class="next pull-left"><a href="{{ url('/') }}"> &larr; 首頁</a></li>
                     </ul>
                 </div>
-            </div>
-            <!--/row end-->
-
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-5"></div>
     </div>
     <!--/row-->
 
@@ -85,4 +64,45 @@
 
 @include('member.nav_signup')
 
+@endsection
+
+
+
+@section('page-script')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var options = {
+                beforeSubmit:  showRequest,
+                success:       showResponse,
+                dataType: 'json'
+            };
+            $('#dataForm').ajaxForm(options);
+
+        });
+        function showRequest(formData, jqForm, options) {
+            $("#validation-errors-email").empty();
+            $("#success_message").empty();
+            return true;
+        }
+        function showResponse(response, statusText, xhr, $form)  {
+
+            if(response.success == false)
+            {
+                if(response.errors.hasOwnProperty('email')) {
+                    var email_error = response.errors.email;
+
+                    $.each(email_error, function (index, value) {
+                        if (value.length != 0) {
+                            $("#validation-errors-email").append('<p class="alert alert-danger"><strong>' + value + '</strong></p>');
+                        }
+                    });
+                }
+            } else {
+                var success = response.message;
+                $("#success_message").append('<p class="alert alert-success"><strong>'+ success +'</strong></p>');
+                $("#success_message").show().delay(2000).fadeOut();
+
+            }
+        }
+    </script>
 @endsection

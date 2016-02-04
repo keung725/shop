@@ -31,6 +31,7 @@ Route::group(['middleware' => 'web'], function () {
     // Password Reset Routes...
     Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
     Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
+    Route::get('password/email', 'Auth\PasswordController@showLinkRequestForm');
     Route::post('password/reset', 'Auth\PasswordController@reset');
     Route::get('logout', 'Auth\AuthController@logout');
 
@@ -39,7 +40,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('register', 'UsersController@register');
     Route::post('login', 'UsersController@login');
     Route::get('profile', 'UsersController@profile');
-
+    Route::post('profile', 'UsersController@postProfile');
 
 
 

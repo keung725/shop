@@ -4,23 +4,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ URL::asset('assets/ico/apple-touch-icon-144-precomposed.png')}}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ URL::asset('assets/ico/apple-touch-icon-114-precomposed.png')}}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ URL::asset('assets/ico/apple-touch-icon-72-precomposed.png')}}">
+    <link rel="apple-touch-icon-precomposed" href="{{ URL::asset('ico/apple-touch-icon-57-precomposed.png')}}">
+    <link rel="shortcut icon" href="{{ URL::asset('assets/ico/favicon.png')}}">
     <title>@yield('title')</title>
     <!-- Bootstrap core CSS -->
-    <link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="{{ URL::asset('assets/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
 
 
     <!-- styles needed by swiper slider -->
-    <link href="assets/plugins/swiper-master/css/swiper.min.css" rel="stylesheet">
+    <link href="{{ URL::asset('assets/plugins/swiper-master/css/swiper.min.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/home-v7.css" rel="stylesheet">
-    <link href="assets/css/cart-nav.css" rel="stylesheet">
+    <link href="{{ URL::asset('assets/css/style.css')}}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/css/home-v7.css')}}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/css/cart-nav.css')}}" rel="stylesheet">
 
 
     <!-- Just for debugging purposes. -->
@@ -37,7 +37,7 @@
             elements: true
         };
     </script>
-    <script src="assets/js/pace.min.js"></script>
+    <script src="{{ URL::asset('assets/js/pace.min.js')}}"></script>
 </head>
 <body>
 
@@ -51,9 +51,9 @@
 ================================================== -->
 
 <!-- Placed at the end of the document so the pages load faster -->
-<script type="text/javascript" src="assets/js/jquery/jquery-1.10.1.min.js"></script>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/plugins/swiper-master/js/swiper.jquery.min.js"></script>
+<script type="text/javascript" src="{{ URL::asset('assets/js/jquery/jquery-1.10.1.min.js')}}"></script>
+<script src="{{ URL::asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
+<script src="{{ URL::asset('assets/plugins/swiper-master/js/swiper.jquery.min.js')}}"></script>
 <script>
 
     var swiper = new Swiper('.swiper-container', {
@@ -73,48 +73,48 @@
 </script>
 
 <!-- include jqueryCycle plugin -->
-<script src="assets/js/jquery.cycle2.min.js"></script>
+<script src="{{ URL::asset('assets/js/jquery.cycle2.min.js')}}"></script>
 
 <!-- include easing plugin -->
-<script src="assets/js/jquery.easing.1.3.js"></script>
+<script src="{{ URL::asset('assets/js/jquery.easing.1.3.js')}}"></script>
 
 <!-- include  parallax plugin -->
-<script type="text/javascript" src="assets/js/jquery.parallax-1.1.js"></script>
+<script type="text/javascript" src="{{ URL::asset('assets/js/jquery.parallax-1.1.js')}}"></script>
 
 <!-- optionally include helper plugins -->
-<script type="text/javascript" src="assets/js/helper-plugins/jquery.mousewheel.min.js"></script>
+<script type="text/javascript" src="{{ URL::asset('assets/js/helper-plugins/jquery.mousewheel.min.js')}}"></script>
 
 <!-- include mCustomScrollbar plugin //Custom Scrollbar  -->
 
-<script type="text/javascript" src="assets/js/jquery.mCustomScrollbar.js"></script>
+<script type="text/javascript" src="{{ URL::asset('assets/js/jquery.mCustomScrollbar.js')}}"></script>
 
 <!-- include icheck plugin // customized checkboxes and radio buttons   -->
-<script type="text/javascript" src="assets/plugins/icheck-1.x/icheck.min.js"></script>
+<script type="text/javascript" src="{{ URL::asset('assets/plugins/icheck-1.x/icheck.min.js')}}"></script>
 
 <!-- include grid.js // for equal Div height  -->
-<script src="assets/js/grids.js"></script>
+<script src="{{ URL::asset('assets/js/grids.js')}}"></script>
 
 <!-- include carousel slider plugin  -->
-<script src="assets/js/owl.carousel.min.js"></script>
+<script src="{{ URL::asset('assets/js/owl.carousel.min.js')}}"></script>
 
 <!-- jQuery select2 // custom select   -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
 
 <!-- include touchspin.js // touch friendly input spinner component   -->
-<script src="assets/js/bootstrap.touchspin.js"></script>
+<script src="{{ URL::asset('assets/js/bootstrap.touchspin.js')}}"></script>
 
 <!-- include custom script for only homepage  -->
-<script src="assets/js/home.js"></script>
+<script src="{{ URL::asset('assets/js/home.js')}}"></script>
 
 <!-- include custom script for site  -->
-<script src="assets/js/script.js"></script>
+<script src="{{ URL::asset('assets/js/script.js')}}"></script>
 
-<script src="assets/js/sidebar-nav.js"></script>
+<script src="{{ URL::asset('assets/js/sidebar-nav.js')}}"></script>
 
 
 <!-- scrollme || onscroll parallax effect for category page  -->
-<script src="assets/js/jquery.scrollme.min.js"></script>
-<script src="{{ URL::asset('backend/plugins/jQuery/jquery.form.js') }}"></script>
+<script src="{{ URL::asset('assets/js/jquery.scrollme.min.js')}}"></script>
+<script src="{{ URL::asset('backend/plugins/jQuery/jquery.form.js')}}"></script>
 
 <script type="text/javascript">
 

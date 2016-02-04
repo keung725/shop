@@ -17,19 +17,19 @@ class UsersTableSeeder extends Seeder
         // Create the role
         $siteowner = Role::create(array(
             'name' => 'siteowner',
-            'display_name' => 'Site Owner',
+            'display_name' => '網頁擁有人',
             'description' => 'A Site Owner',
         ));
 
         $admin = Role::create(array(
             'name' => 'admin',
-            'display_name' => 'Admin',
+            'display_name' => '管理員',
             'description' => 'A Site Admin',
         ));
 
         $member = Role::create(array(
             'name' => 'member',
-            'display_name' => 'Member',
+            'display_name' => '普通會員',
             'description' => 'A Site Member',
         ));
 
