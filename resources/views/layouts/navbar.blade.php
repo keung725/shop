@@ -9,7 +9,7 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-cart"><i
                     class="fa fa-shopping-cart colorWhite"> </i> <span
                     class="cartRespons colorWhite">($210.00)</span></button>
-            <a class="navbar-brand " href="/"> <img src="images/logo-dark.png" alt="KCBRoom"> </a>
+            <a class="navbar-brand " href="/"> <img src="{{ URL::asset('images/logo-dark.png')}}" alt="KCBRoom"> </a>
 
             <!-- this part for mobile -->
             <div class="search-box pull-right hidden-lg hidden-md hidden-sm">

@@ -6,7 +6,7 @@
     <div class="content-wrapper" ng-app="HomeBanner" ng-controller="HomeBannerController">
         @include('admin.layouts.breadcrumb')
         <section class="content-header">
-            <a href="{{ url('/admin/homebanner/create') }}">Go to Home Banner Create</a>
+            <a href="{{ url('/admin/homebanners/create') }}">Go to Home Banner Create</a>
         </section>
         <!-- Main content -->
         <section class="content" id="content">

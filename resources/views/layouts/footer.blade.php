@@ -127,12 +127,12 @@
                 <div class="col-lg-12">
                     <div class=" text-center paymanet-method-logo">
 
-                        <img src="images/site/payment/master_card.png" alt="img">
-                        <img alt="img" src="images/site/payment/visa_card.png">
-                        <img alt="img" src="images/site/payment/paypal.png">
-                        <img alt="img" src="images/site/payment/american_express_card.png"> <img alt="img"
-                                                                                                 src="images/site/payment/discover_network_card.png">
-                        <img alt="img" src="images/site/payment/google_wallet.png">
+                        <img src="{{ URL::asset('images/site/payment/master_card.png')}}" alt="img">
+                        <img alt="img" src="{{ URL::asset('images/site/payment/visa_card.png')}}">
+                        <img alt="img" src="{{ URL::asset('images/site/payment/paypal.png')}}">
+                        <img alt="img" src="{{ URL::asset('images/site/payment/american_express_card.png')}}"> <img alt="img"
+                                                                                                 src="{{ URL::asset('images/site/payment/discover_network_card.png')}}">
+                        <img alt="img" src="{{ URL::asset('images/site/payment/google_wallet.png')}}">
                     </div>
 
                     <div class="copy-info text-center">

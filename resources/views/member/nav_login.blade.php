@@ -41,7 +41,7 @@
             <div class="modal-footer">
                 <p class="text-center"> <a class="btn btn-link" data-toggle="modal" data-dismiss="modal"
                                                             href="#ModalSignup"> 會員註冊 </a>
-                    <a class="btn btn-link" href="{{ url('/password/reset') }}">忘記密碼?</a>  </p>
+                    <a class="btn btn-link" href="{{ url('/password/email') }}">忘記密碼?</a>  </p>
             </div>
         </div>
         <!-- /.modal-content -->

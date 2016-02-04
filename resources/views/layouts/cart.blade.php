@@ -18,7 +18,7 @@
                     <tbody>
                     <tr class="miniCartProduct">
                         <td class="miniCartProductThumb" style="20%">
-                            <div><a href="product-details.html"> <img alt="img" src="images/product/16.jpg"> </a>
+                            <div><a href="product-details.html"> <img alt="img" src="{{ URL::asset('images/product/16.jpg')}}"> </a>
                             </div>
                         </td>
                         <td style="40%">
@@ -37,7 +37,7 @@
 
                     <tr class="miniCartProduct">
                         <td class="miniCartProductThumb" style="20%">
-                            <div><a href="product-details.html"> <img alt="img" src="images/product/5.jpg"> </a>
+                            <div><a href="product-details.html"> <img alt="img" src="{{ URL::asset('images/product/5.jpg')}}"> </a>
                             </div>
                         </td>
                         <td style="40%">
@@ -55,7 +55,7 @@
                     </tr>
                     <tr class="miniCartProduct">
                         <td class="miniCartProductThumb" style="20%">
-                            <div><a href="product-details.html"> <img alt="img" src="images/product/7.jpg"> </a>
+                            <div><a href="product-details.html"> <img alt="img" src="{{ URL::asset('images/product/5.jpg')}}"> </a>
                             </div>
                         </td>
                         <td style="40%">
@@ -71,64 +71,7 @@
                             <button type="button" class="close"><span aria-hidden="true">×</span></button>
                         </td>
                     </tr>
-                    <tr class="miniCartProduct">
-                        <td class="miniCartProductThumb" style="20%">
-                            <div><a href="product-details.html"> <img alt="img" src="images/product/13.jpg"> </a>
-                            </div>
-                        </td>
-                        <td style="40%">
-                            <div class="miniCartDescription">
-                                <h4><a href="product-details.html"> Denim T shirt Black </a></h4>
-                                <span class="size"> 12 x 1.5 L </span>
 
-                                <div class="price"><span> $8.80 </span></div>
-                            </div>
-                        </td>
-
-                        <td class="delete" style="20%">
-                            <button type="button" class="close"><span aria-hidden="true">×</span></button>
-                        </td>
-                    </tr>
-                    <tr class="miniCartProduct">
-                        <td class="miniCartProductThumb" style="20%">
-                            <div><a href="product-details.html"> <img alt="img" src="images/product/4.jpg"> </a>
-                            </div>
-                        </td>
-                        <td style="40%">
-                            <div class="miniCartDescription">
-                                <h4><a href="product-details.html"> Denim T shirt Black </a></h4>
-                                <span class="size"> 12 x 1.5 L </span>
-
-                                <div class="price"><span> $8.80 </span></div>
-                            </div>
-                        </td>
-                        <td class="delete" style="20%">
-
-                            <button type="button" class="close"><span aria-hidden="true">×</span></button>
-
-                        </td>
-                    </tr>
-
-
-                    <tr class="miniCartProduct">
-                        <td class="miniCartProductThumb" style="20%">
-                            <div><a href="product-details.html"> <img alt="img" src="images/product/9.jpg"> </a>
-                            </div>
-                        </td>
-                        <td style="40%">
-                            <div class="miniCartDescription">
-                                <h4><a href="product-details.html"> Product Item </a></h4>
-                                <span class="size"> 12 x 1.5 L </span>
-
-                                <div class="price"><span> $90 </span></div>
-                            </div>
-                        </td>
-                        <td class="delete" style="20%">
-
-                            <button type="button" class="close"><span aria-hidden="true">×</span></button>
-
-                        </td>
-                    </tr>
                     </tbody>
                 </table>
             </div>

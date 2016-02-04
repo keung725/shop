@@ -13,6 +13,8 @@ use DB;
 use Request;
 use Auth;
 
+
+
 class UsersController extends Controller
 {
 
@@ -53,7 +55,8 @@ class UsersController extends Controller
     {
         $email = Input::get('email');
         $password = Input::get('password');
-        $remember = (Input::has('remember')) ? true : false;
+        $remember = Input::has('remember');
+
 
         if (Auth::attempt(['email' => $email, 'password' => $password], $remember)) {
             //return success  message
@@ -67,9 +70,43 @@ class UsersController extends Controller
     }
 
     public function profile(){
-
-        return view('member.profile');
+        $user = Auth::user();
+        $user = User::whereId($user->id)->firstOrFail();
+        return view('member.profile', compact('user'));
 
     }
+
+    public function postProfile(){
+        $inputData = Input::all();
+        $user = Auth::user();
+
+        $rules = array(
+            'email'     =>  'required|email|Unique:users,email,'.$user->id ,
+        );
+        $validator = Validator::make($inputData,$rules);
+        if($validator->fails())
+            return Response::json(['success' => false, 'errors' => $validator->getMessageBag()->toArray()]);
+        else {
+
+            $user = User::whereId($user->id)->firstOrFail();
+            if(Input::get('name') == '') {
+                $user->name = null;
+            }else {
+                $user->name = Input::get('name');
+            }
+            $user->email = Input::get('email');
+            $user->save();
+
+            //return success  message
+            return Response::json(['success' => true, 'message'=>  '成功更新!']);
+
+        }
+    }
+
+    public function forgot(){
+        return view('member.forgot');
+    }
+
+
 
 }
