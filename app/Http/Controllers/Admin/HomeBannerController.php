@@ -49,10 +49,18 @@ class HomeBannerController extends Controller
         $file = Input::file('image');
         $rules = array(
             'image' => 'required|image',
-            'link_path' => 'required',
             'title' => 'required',
+            'link_path' => 'required',
         );
+
+        $niceNames = array(
+            'image' => 'Home Banner',
+            'title' => 'Title',
+            'link_path' => 'Link Path',
+        );
+
         $validator = Validator::make($input, $rules);
+        $validator->setAttributeNames($niceNames);
         if ( $validator->fails() )
         {
             return Response::json(['success' => false, 'errors' => $validator->getMessageBag()->toArray()]);

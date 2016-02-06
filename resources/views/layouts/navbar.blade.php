@@ -25,11 +25,11 @@
 
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class=" "><a href="#"> New </a></li>
+                <li class=" "><a href="#">最新產品</a></li>
 
                 <!-- change width of megamenu = use class > megamenu-fullwidth, megamenu-60width, megamenu-40width -->
                 <li class="dropdown megamenu-fullwidth "><a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                    Browse
+                    時裝
                     <b class="caret"> </b> </a>
                     <ul class="dropdown-menu hero-submenu">
                         <li class="megamenu-content">

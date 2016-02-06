@@ -14,20 +14,22 @@
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <form class="form" id="upload" enctype="multipart/form-data" method="post" action="{{ url('admin/homebanners/store') }}" autocomplete="off">
-                            <div id="validation-errors"></div>
                             <div id="success_message"></div>
                         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                         <div class="form-group">
                             <label>Home Banner</label>
                             <input type="file"  class="form-control" name="image" id="image" />
+                            <div id="image"></div>
                         </div>
                         <div class="form-group">
                             <label>title</label>
                             <input type="text" class="form-control" id="title" name="title">
+                            <div id="title"></div>
                         </div>
                         <div class="form-group">
                             <label>Link Path</label>
                             <input type="text" class="form-control" id="link_path" name="link_path">
+                            <div id="link_path"></div>
                         </div>
                         <div class="form-group">
                             <div class="col-lg-10 col-lg-offset-2">
@@ -69,10 +71,11 @@
                 {
                     if (value.length != 0)
                     {
-                        $("#validation-errors").append('<p class="alert alert-danger"><strong>'+ value +'</strong></p>');
+                        $("div#" + index).hide().empty();
+                        $("div#" + index).append('<p class="alert-danger"><strong>'+ value +'</strong></p>');
+                        $("div#" + index).show().delay(2000).fadeOut();
                     }
                 });
-                $("#validation-errors").show().delay(2000).fadeOut();
             } else {
                 var success = response.message;
 

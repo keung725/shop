@@ -17,15 +17,16 @@
                 <div class="box-body">
                     <form class="form" id="dataForm" method="post" action="{{ url('admin/roles/'.$role->id)}}">
                         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
-                        <div id="validation-errors"></div>
                         <div id="success_message"></div>
                         <div class="form-group">
                             <label>Name</label>
                             <input type="text" class="form-control" id="name" name="name" value="{!! $role->name !!}" >
+                            <div id="name"></div>
                         </div>
                         <div class="form-group">
                             <label>Display Name</label>
                             <input type="display_name" class="form-control" id="display_name" name="display_name" value="{!! $role->display_name !!}">
+                            <div id="display_name"></div>
                         </div>
                         <div class="form-group">
                             <label>Description</label>
@@ -57,7 +58,6 @@
 
         });
         function showRequest(formData, jqForm, options) {
-            $("#validation-errors").hide().empty();
             $("#success_message").hide().empty();
             return true;
         }
@@ -70,11 +70,12 @@
                 {
                     if (value.length != 0)
                     {
-                        $("#validation-errors").append('<p class="alert alert-danger"><strong>'+ value +'</strong></p>');
-                        $("#validation-errors").show().delay(2000).fadeOut();
+                        $("div#" + index).hide().empty();
+                        $("div#" + index).append('<p class="alert-danger"><strong>'+ value +'</strong></p>');
+                        $("div#" + index).show().delay(2000).fadeOut();
                     }
                 });
-                $("#validation-errors").show();
+
             } else {
                 var success = response.message;
                 $("#success_message").append('<p class="alert alert-success"><strong>'+ success +'</strong></p>');

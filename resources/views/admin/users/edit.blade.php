@@ -16,7 +16,6 @@
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <form class="form" id="dataForm" method="post" action="{{ url('admin/users/'.$user->id)}}">
-                        <div id="validation-errors"></div>
                         <div id="success_message"></div>
                         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                         <div class="form-group">
@@ -65,7 +64,6 @@
 
         });
         function showRequest(formData, jqForm, options) {
-            $("#validation-errors").hide().empty();
             $("#success_message").hide().empty();
             return true;
         }
@@ -78,11 +76,12 @@
                 {
                     if (value.length != 0)
                     {
-                        $("#validation-errors").append('<p class="alert alert-danger"><strong>'+ value +'</strong></p>');
-                        $("#validation-errors").show().delay(2000).fadeOut();
+                        $("div#" + index).hide().empty();
+                        $("div#" + index).append('<p class="alert-danger"><strong>'+ value +'</strong></p>');
+                        $("div#" + index).show().delay(2000).fadeOut();
                     }
                 });
-                $("#validation-errors").show();
+
             } else {
                 var success = response.message;
                 $("#success_message").append('<p class="alert alert-success"><strong>'+ success +'</strong></p>');
