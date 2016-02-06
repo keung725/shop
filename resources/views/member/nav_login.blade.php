@@ -8,7 +8,7 @@
             </div>
 
             <div class="modal-body">
-                <div class="control-group"><a class="fb_button btn  btn-block btn-lg " href="#">FACEBOOK 登入</a></div>
+                <div class="control-group"><a class="fb_button btn  btn-block btn-lg " href="{{ url('login/facebook')}}">FACEBOOK 登入</a></div>
                 <h5 style="padding:10px 0 10px 0;" class="text-center"> 或 </h5>
 
                 <form class="form" id="log-form" method="post" action="{{ url('/login') }}" autocomplete="off" novalidate>

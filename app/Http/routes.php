@@ -42,6 +42,10 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('profile', 'UsersController@profile');
     Route::post('profile', 'UsersController@postProfile');
 
+    Route::get('login/facebook', 'Auth\AuthController@redirectToFacebook');
+    Route::get('login/facebook/callback', 'Auth\AuthController@getFacebookCallback');
+
+
 
 
     Route::group(array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['role:siteowner|admin']), function () {
