@@ -7,8 +7,9 @@
                 <h3 class="modal-title-site text-center"> 會員註冊 </h3>
             </div>
             <div class="modal-body">
-                <div class="control-group"><a class="fb_button btn  btn-block btn-lg " href="#">FACEBOOK 登入</a></div>
+                <div class="control-group"><a class="fb_button btn  btn-block btn-lg " href="{{ url('login/facebook')}}">FACEBOOK 登入</a></div>
                 <h5 style="padding:10px 0 10px 0;" class="text-center"> 或 </h5>
+
 
                 <form class="form" id="reg-form" method="post" action="{{ url('/register') }}" autocomplete="off" novalidate>
                     <div id="reg-success_message"></div>

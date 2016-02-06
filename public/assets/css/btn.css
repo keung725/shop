@@ -540,6 +540,25 @@ fieldset[disabled] .btn-inverse.active {
   color: #ffffff;
   text-decoration: none;
 }
+
+.g_button {
+  background: #ff3333;
+  color: #ffffff;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+.btn-g {
+  background: #ff3333;
+  color: #ffffff;
+}
+.fb_g:hover,
+.btn-g:hover {
+  background: #ff6666;
+  color: #ffffff;
+  text-decoration: none;
+}
+
 .btn-tw {
   background: #1dadeb;
   color: #ffffff;

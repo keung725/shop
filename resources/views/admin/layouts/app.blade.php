@@ -96,6 +96,7 @@
 <script src="{{ URL::asset('backend/plugins/jQuery/jquery.form.js') }}"></script>
 <script src="{{ URL::asset('backend/dist/js/angular.min.js') }}"></script>
 <script>
+
     var dataTable = function () {
         $('#dataListingTable').DataTable({
             "paging": true,

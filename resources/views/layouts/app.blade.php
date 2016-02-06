@@ -56,6 +56,14 @@
 <script src="{{ URL::asset('assets/plugins/swiper-master/js/swiper.jquery.min.js')}}"></script>
 <script>
 
+
+    if (window.location.hash == '#_=_'){
+        history.replaceState
+                ? history.replaceState(null, null, window.location.href.split('#')[0])
+                : window.location.hash = '';
+    }
+
+
     var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
         paginationClickable: '.swiper-pagination',
