@@ -28,104 +28,34 @@
                 <li class=" "><a href="#">最新產品</a></li>
 
                 <!-- change width of megamenu = use class > megamenu-fullwidth, megamenu-60width, megamenu-40width -->
-                <li class="dropdown megamenu-fullwidth "><a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                    時裝
-                    <b class="caret"> </b> </a>
-                    <ul class="dropdown-menu hero-submenu">
-                        <li class="megamenu-content">
 
-                            <!-- megamenu-content -->
+                @foreach($items as $item)
+                    <li class="dropdown megamenu-fullwidth "><a data-toggle="dropdown" class="dropdown-toggle" href="#">{{ $item->title }}
+                        @if(count($item['children'])>0)
+                            <b class="caret"> </b>
+                        @endif
+                        </a>
 
+                        @if(count($item['children'])>0)
+                            <ul class="dropdown-menu hero-submenu">
+                                <li class="megamenu-content">
 
-                            <ul class="col-lg-2  col-sm-2 col-md-2  unstyled">
-                                <li>
-                                    <p class="menu-title"><strong> Men Collection </strong></p>
+                                    <ul class="col-lg-2  col-sm-2 col-md-2  unstyled">
+                                        <li>
+                                            <p class="menu-title"><strong>熱門分類</strong></p>
+                                        </li>
+                        @endif
+                            @foreach($item['children'] as $child)
+                                            <li><a href="#">{{ $child->title }}</a></li>
+                            @endforeach
+                        @if(count($item['children'])>0)
+                                    </ul>
                                 </li>
-                                <li><a href="#"> Male Fragrances </a></li>
-                                <li><a href="#"> Scarf </a></li>
-                                <li><a href="#"> Underwear </a></li>
-
-                                <li><a href="#"> Coats & Jackets </a></li>
-                                <li><a href="#"> Basics </a></li>
                             </ul>
-                            <ul class="col-lg-2  col-sm-2 col-md-2  unstyled">
-                                <li>
-                                    <p class="menu-title"><strong> Women Collection </strong></p>
-                                </li>
+                        @endif
+                    </li>
+                @endforeach
 
-                                <li><a href="#"> Tops </a></li>
-                                <li><a href="#"> Bottoms </a></li>
-                                <li><a href="#"> Dresses </a></li>
-                                <li><a href="#"> Coats & Jackets </a></li>
-                                <li><a href="#"> Trends </a></li>
-
-
-                            </ul>
-
-                            <ul class="col-lg-2  col-sm-2 col-md-2  unstyled">
-                                <li>
-                                    <p class="menu-title"><strong> Accessories </strong></p>
-                                </li>
-
-
-                                <li><a href="#"> Sunglasses </a></li>
-                                <li><a href="#"> Scarves </a></li>
-                                <li><a href="#"> Watches </a></li>
-                                <li><a href="#"> Belts </a></li>
-                                <li><a href="#"> Socks </a></li>
-                            </ul>
-
-                            <ul class="col-lg-2  col-sm-2 col-md-2  unstyled">
-                                <li>
-                                    <p class="menu-title"><strong> Top Brands </strong></p>
-                                </li>
-                                <li><a href="#"> Diesel </a></li>
-                                <li><a href="#"> Farah </a></li>
-                                <li><a href="#"> G-Star RAW </a></li>
-                                <li><a href="#"> Lyle & Scott </a></li>
-                                <li><a href="#"> Pretty Green </a></li>
-                            </ul>
-
-                            <ul class="col-lg-2  col-sm-2 col-md-2  unstyled">
-                                <li>
-                                    <p class="menu-title"><strong> Shoes </strong></p>
-                                </li>
-                                <li><a href="#"> Flats </a></li>
-                                <li><a href="#"> Sandals </a></li>
-                                <li><a href="#"> Wedges </a></li>
-                                <li><a href="#"> Sneakers </a></li>
-                                <li><a href="#"> Heels & Pumps </a></li>
-                            </ul>
-
-                            <ul class="col-lg-2  col-sm-2 col-md-2  unstyled">
-                                <li>
-                                    <p class="menu-title"><strong> Popular </strong></p>
-                                </li>
-                                <li><a href="#">Denim</a></li>
-                                <li><a href="#">Essentials</a></li>
-                                <li><a href="#">Shirts</a></li>
-                                <li><a href="#">Pants</a></li>
-                                <li><a href="#">Outerwear</a></li>
-                            </ul>
-
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown "><a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                    SHOP <b class="caret"> </b> </a>
-
-                    <ul class="dropdown-menu">
-                        <li><a href="#">New</a></li>
-                        <li><a href="#">Denim</a></li>
-                        <li><a href="#">Essentials</a></li>
-                        <li><a href="#">Shirts</a></li>
-                        <li><a href="#">Pants</a></li>
-                        <li><a href="#">Outerwear</a></li>
-                        <li><a href="#">Sweaters</a></li>
-                        <li><a href="#">Shorts</a></li>
-                        <li><a href="#">Sale</a></li>
-                    </ul>
-                </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

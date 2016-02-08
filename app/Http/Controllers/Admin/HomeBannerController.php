@@ -99,47 +99,65 @@ class HomeBannerController extends Controller
     }
 
     public function update($id) {
-        $HomeBanner = HomeBanner::find($id);
 
-        if(Input::has('show')) {
-            $HomeBanner->show = Input::get('show');
-        }
-        if(Input::has('ordering')) {
-            $HomeBanner->ordering = Input::get('ordering');
-        }
-        if(Input::has('status')) {
-            $HomeBanner->status = Input::get('status');
-        }
-        if(Input::has('link_path')) {
-            $HomeBanner->link_path = Input::get('link_path');
-        }
-        if(Input::has('title')) {
-            $HomeBanner->title = Input::get('title');
-        }
+        $input = Input::all();
 
-        if(Input::hasfile('image')){
-            $file = Input::file('image');
+        $rules = array(
+            'image' => 'image',
+        );
 
-            $destinationPath = 'uploads/banners/';
-            $filename = $file->getClientOriginalName();
-            Input::file('image')->move($destinationPath, $filename);
+        $niceNames = array(
+            'image' => 'Home Banner',`      `
+        );
 
-            $ext = substr($filename, strrpos($filename, "."));
-            $newFileName = basename($filename, $ext) . "_" . $HomeBanner->id . "_" . date("Ymdhis")   . $ext;
+        $validator = Validator::make($input, $rules);
+        $validator->setAttributeNames($niceNames);
+        if ( $validator->fails() ){
+            return Response::json(['success' => false, 'errors' => $validator->getMessageBag()->toArray()]);
+        }else {
 
-            rename($destinationPath . $filename, $destinationPath . $newFileName);
+            $HomeBanner = HomeBanner::find($id);
 
-            HomeBanner::where('id', $HomeBanner->id)
-                ->update(['image_path' => $destinationPath . $newFileName]);
+            if (Input::has('show')) {
+                $HomeBanner->show = Input::get('show');
+            }
+            if (Input::has('ordering')) {
+                $HomeBanner->ordering = Input::get('ordering');
+            }
+            if (Input::has('status')) {
+                $HomeBanner->status = Input::get('status');
+            }
+            if (Input::has('link_path')) {
+                $HomeBanner->link_path = Input::get('link_path');
+            }
+            if (Input::has('title')) {
+                $HomeBanner->title = Input::get('title');
+            }
 
-        }
+            if (Input::hasfile('image')) {
+                $file = Input::file('image');
 
-        $HomeBanner->save();
+                $destinationPath = 'uploads/banners/';
+                $filename = $file->getClientOriginalName();
+                Input::file('image')->move($destinationPath, $filename);
 
-        if(Input::hasfile('image')) {
-            return Response::json(['success' => true, 'message' => 'Home Banner has been updated!', 'file' => asset($destinationPath . $newFileName)]);
-        }else{
-            return Response::json(['success' => true, 'message' => 'Home Banner has been updated!']);
+                $ext = substr($filename, strrpos($filename, "."));
+                $newFileName = basename($filename, $ext) . "_" . $HomeBanner->id . "_" . date("Ymdhis") . $ext;
+
+                rename($destinationPath . $filename, $destinationPath . $newFileName);
+
+                HomeBanner::where('id', $HomeBanner->id)
+                    ->update(['image_path' => $destinationPath . $newFileName]);
+
+            }
+
+            $HomeBanner->save();
+
+            if (Input::hasfile('image')) {
+                return Response::json(['success' => true, 'message' => 'Home Banner has been updated!', 'file' => asset($destinationPath . $newFileName)]);
+            } else {
+                return Response::json(['success' => true, 'message' => 'Home Banner has been updated!']);
+            }
         }
     }
 }

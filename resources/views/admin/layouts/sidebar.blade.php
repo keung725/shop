@@ -23,13 +23,26 @@
 
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-edit"></i> <span>Home Banner</span>
+                    <i class="fa fa-table"></i> <span>Home Banner</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ url('/admin/homebanners') }}"><i class="fa fa-circle-o"></i> All Home Banner</a></li>
-                    <li><a href="{{ url('/admin/homebanners/create') }}"><i class="fa fa-circle-o"></i> Create Home Banner</a></li>
+                    <li><a href="{{ url('/admin/homebanners') }}"><i class="fa fa-table"></i> All Home Banner</a></li>
+                    <li><a href="{{ url('/admin/homebanners/create') }}"><i class="fa fa-table"></i> Create Home Banner</a></li>
                     <li><a href="{{ url('/admin/homebanners/recover') }}"><i class="fa fa-trash-o"></i> Recover Home Banner</a></li>
+
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-table"></i> <span>Category</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ url('/admin/category') }}"><i class="fa fa-table"></i> All categories</a></li>
+                    <li><a href="{{ url('/admin/category/create') }}"><i class="fa fa-table"></i> Create category</a></li>
+                    <li><a href="{{ url('/admin/category/recover') }}"><i class="fa fa-trash-o"></i> Recover category</a></li>
 
                 </ul>
             </li>
@@ -57,27 +70,6 @@
                 </ul>
             </li>
 
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-edit"></i> <span>Forms</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ url('/pages/forms/general.html') }}"><i class="fa fa-circle-o"></i> General Elements</a></li>
-                    <li><a href="{{ url('/pages/forms/advanced.html') }}"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-                    <li><a href="{{ url('/pages/forms/editors.html') }}"><i class="fa fa-circle-o"></i> Editors</a></li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-table"></i> <span>Tables</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ url('/pages/tables/simple.html') }}"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-                    <li><a href="{{ url('/pages/tables/data.html') }}"><i class="fa fa-circle-o"></i> Data tables</a></li>
-                </ul>
-            </li>
         </ul>
     </section>
     <!-- /.sidebar -->

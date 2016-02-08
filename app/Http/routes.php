@@ -26,7 +26,7 @@
 
 Route::group(['middleware' => 'web'], function () {
 
-    Route::get('/', 'HomeController@home');
+    Route::get('/', 'PageController@home');
 
     // Password Reset Routes...
     Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
@@ -58,9 +58,11 @@ Route::group(['middleware' => 'web'], function () {
         Route::post('roles/store', 'RolesController@store');
         Route::get('roles/{id?}', 'RolesController@edit');
         Route::post('roles/{id?}','RolesController@update');
+
         Route::get('users', 'UsersController@index');
         Route::get('users/{id?}', 'UsersController@edit');
         Route::post('users/{id?}','UsersController@update');
+
         Route::get('homebanners', 'HomeBannerController@index');
         Route::get('homebanners/available', 'HomeBannerController@availableIndex');
         Route::get('homebanners/recover', 'HomeBannerController@recoverView');
@@ -69,6 +71,15 @@ Route::group(['middleware' => 'web'], function () {
         Route::post('homebanners/store', 'HomeBannerController@store');
         Route::get('homebanners/{id?}', 'HomeBannerController@edit');
         Route::post('homebanners/{id?}', 'HomeBannerController@update');
+
+        Route::get('category', 'CategoryController@index');
+        Route::get('category/available', 'CategoryController@availableIndex');
+        Route::get('category/recover', 'CategoryController@recoverView');
+        Route::get('category/recovers', 'CategoryController@recoverIndex');
+        Route::get('category/create', 'CategoryController@create');
+        Route::post('category/store', 'CategoryController@store');
+        Route::get('category/{id?}', 'CategoryController@edit');
+        Route::post('category/{id?}', 'CategoryController@update');
 
     });
 
