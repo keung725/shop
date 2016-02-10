@@ -10,7 +10,9 @@
 
 @include('category.favo_category')
 
-@include('layouts.overlay')
+@include('category.favo_level_two_category')
+
+@include('brand.brand')
 
 @include('member.nav_login')
 

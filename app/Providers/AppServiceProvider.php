@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Category;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //boot a menu for all frontend pages
+        view()->composer('layouts.navbar', function($view){
+            $view->with('items', Category::tree());
+        });
     }
 
     /**

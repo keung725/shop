@@ -26,7 +26,15 @@ class UsersController extends Controller
             'email'     =>  'required|email|unique:users',
             'password'  =>  'required|min:6|confirmed',
         );
+
+        $niceNames = array(
+            'email' => '電子郵件',
+            'password' => '密碼'
+        );
+
         $validator = Validator::make($inputData,$rules);
+        $validator->setAttributeNames($niceNames);
+
         if($validator->fails())
             return Response::json(['success' => false, 'errors' => $validator->getMessageBag()->toArray()]);
         else {
@@ -83,7 +91,15 @@ class UsersController extends Controller
         $rules = array(
             'email'     =>  'required|email|Unique:users,email,'.$user->id ,
         );
+
+        $niceNames = array(
+            'email' => '電子郵件'
+        );
+
         $validator = Validator::make($inputData,$rules);
+
+        $validator->setAttributeNames($niceNames);
+
         if($validator->fails())
             return Response::json(['success' => false, 'errors' => $validator->getMessageBag()->toArray()]);
         else {

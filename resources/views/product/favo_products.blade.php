@@ -1,200 +1,243 @@
-<section class="section-hero section-gray" id="section-shop">
-    <div class="container">
-        <div class="hero-section-header ">
-            <h3 class="hero-section-title">OUR FAVORITE PRODUCTS</h3>
-        </div>
+<section class="section-hero white-bg" id="section-shop">
+    <div class="container main-container">
 
-        <div class="section-content">
-            <div class="row has-equal-height-child">
-                <div class="product-item item-flat col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12">
-                    <div class="product product-item-inner">
+        <!-- Main component call to action -->
 
+        <div class="row featuredPostContainer globalPadding style2">
+            <h3 class="section-title style2 text-center"><span>NEW ARRIVALS</span></h3>
 
-                        <a data-placement="left" data-original-title="Add to Wishlist" data-toggle="tooltip"
-                           class="add-fav wisthlist-flat tooltipHere">
+            <div id="productslider" class="owl-carousel owl-theme">
+                <div class="item">
+                    <div class="product">
+                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"
+                           data-placement="left">
                             <i class="glyphicon glyphicon-heart"></i>
                         </a>
 
-                        <div class="imageHover hasCart">
-                            <a href="product-details.html">
-                                <img class="img-responsive primaryImage" alt="img" src="images/product/54a.jpg">
-                                <img class="img-responsive secondaryImage" alt="img" src="images/product/54b.jpg"></a>
-
-                            <div class="product-btn-box">
-                                <a class="btn btn-product-flat btn-primary">
-                                    <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span>
-                                </a>
+                        <div class="image">
+                            <div class="quickview">
+                                <a data-toggle="modal" class="btn btn-xs btn-quickview" href="ajax/product.html"
+                                   data-target="#productSetailsModalAjax">Quick View </a>
                             </div>
+                            <a href="product-details.html"><img src="images/product/34.jpg" alt="img"
+                                                                class="img-responsive"></a>
 
+                            <div class="promotion"><span class="new-product"> NEW</span> <span
+                                        class="discount">15% OFF</span></div>
                         </div>
+                        <div class="description">
+                            <h4><a href="product-details.html">consectetuer adipiscing </a></h4>
 
-
-                        <div class="prod-details">
-                            <p class="title">
-                                <a href="product-details-style5-4.1-with-zoom.html" title=""> Men Flat TShirt </a>
-                            </p>
-
-                            <p class="product-flat-info">
-                                <span class="product-curreent-price">
-                                $60.00
-                                </span>
-                                &nbsp;|&nbsp;
-                                <span class="product-model">Mixed Grey </span></p>
-
-                            <div class="product-color">
-                                <a style="background-color:#f1f40e"> </a>
-                                <a style="background-color:#adadad"> </a>
-                                <a style="background-color:#4EC67F"> </a>
-
-                            </div>
-                        </div>
-
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <span class="size">XL / XXL / S </span></div>
+                        <div class="price"><span>$25</span></div>
+                        <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i
+                                            class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>
                     </div>
                 </div>
-                <div class="product-item item-flat col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12">
-                    <div class="product product-item-inner">
-
-
-                        <a data-placement="left" data-original-title="Add to Wishlist" data-toggle="tooltip"
-                           class="add-fav wisthlist-flat tooltipHere">
+                <div class="item">
+                    <div class="product">
+                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"
+                           data-placement="left">
                             <i class="glyphicon glyphicon-heart"></i>
                         </a>
 
-                        <div class="imageHover hasCart">
-                            <a href="product-details.html">
-                                <img class="img-responsive primaryImage" alt="img" src="images/product/53a.jpg">
-                                <img class="img-responsive secondaryImage" alt="img" src="images/product/53b.jpg"></a>
-
-                            <div class="product-btn-box">
-                                <a class="btn btn-product-flat btn-primary">
-                                    <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span>
-                                </a>
+                        <div class="image">
+                            <div class="quickview">
+                                <a data-toggle="modal" class="btn btn-xs btn-quickview" href="ajax/product.html"
+                                   data-target="#productSetailsModalAjax">Quick View </a>
                             </div>
+                            <a href="product-details.html"><img src="images/product/30.jpg" alt="img"
+                                                                class="img-responsive"></a>
 
+                            <div class="promotion"><span class="discount">15% OFF</span></div>
                         </div>
+                        <div class="description">
+                            <h4><a href="product-details.html">luptatum zzril delenit</a></h4>
 
-
-                        <div class="prod-details">
-                            <p class="title">
-                                <a href="product-details-style5-4.1-with-zoom.html" title="title">Women Flat TShirt</a>
-                            </p>
-                            
-                             
-
-
-                            <p class="product-flat-info">
-                                <span class="product-curreent-price">
-                                $100.00
-                                </span>
-                                &nbsp;|&nbsp;
-                                <span class="product-model">Mixed Grey </span></p>
-
-                            <div class="product-color">
-                                <a style="background-color:#f1f40e"> </a>
-                                <a style="background-color:#FE6FC3"> </a>
-                                <a style="background-color:#4EC67F"> </a>
-
-                            </div>
-                        </div>
-
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <span class="size">XL / XXL / S </span></div>
+                        <div class="price"><span>$25</span></div>
+                        <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i
+                                            class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>
                     </div>
                 </div>
-
-                <div class="product-item item-flat col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12">
-                    <div class="product product-item-inner">
-
-
-                        <a data-placement="left" data-original-title="Add to Wishlist" data-toggle="tooltip"
-                           class="add-fav wisthlist-flat tooltipHere">
+                <div class="item">
+                    <div class="product">
+                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"
+                           data-placement="left">
                             <i class="glyphicon glyphicon-heart"></i>
                         </a>
 
-                        <div class="imageHover hasCart">
-                            <a href="product-details.html">
-                                <img class="img-responsive primaryImage" alt="img" src="images/product/50a.jpg">
-                                <img class="img-responsive secondaryImage" alt="img" src="images/product/50b.jpg"></a>
-
-                            <div class="product-btn-box">
-                                <a class="btn btn-product-flat btn-primary">
-                                    <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span>
-                                </a>
+                        <div class="image">
+                            <div class="quickview">
+                                <a data-toggle="modal" class="btn btn-xs btn-quickview" href="ajax/product.html"
+                                   data-target="#productSetailsModalAjax">Quick View </a>
                             </div>
+                            <a href="product-details.html"><img src="images/product/36.jpg" alt="img"
+                                                                class="img-responsive"></a>
 
+                            <div class="promotion"><span class="new-product"> NEW</span></div>
                         </div>
+                        <div class="description">
+                            <h4><a href="product-details.html">eleifend option </a></h4>
 
-
-                        <div class="prod-details">
-                           <p class="title">
-                                <a href="product-details-style5-4.1-with-zoom.html" title="title">{{ trans('product.name') }}</a>
-                            </p>
-
-                            <p class="product-flat-info">
-                                <span class="product-curreent-price">
-                                $100.00
-                                </span>
-                                &nbsp;|&nbsp;
-                                <span class="product-model">Mixed Grey </span></p>
-
-                            <div class="product-color">
-                                <a style="background-color:#73A44A"> </a>
-                                <a style="background-color:#adadad"> </a>
-                                <a style="background-color:#4EC67F"> </a>
-
-                            </div>
-                        </div>
-
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <span class="size">XL / XXL / S </span></div>
+                        <div class="price"><span>$25</span></div>
+                        <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i
+                                            class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>
                     </div>
                 </div>
-
-                <div class="product-item item-flat col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12">
-                    <div class="product product-item-inner">
-
-
-                        <a data-placement="left" data-original-title="Add to Wishlist" data-toggle="tooltip"
-                           class="add-fav wisthlist-flat tooltipHere">
+                <div class="item">
+                    <div class="product">
+                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"
+                           data-placement="left">
                             <i class="glyphicon glyphicon-heart"></i>
                         </a>
 
-                        <div class="imageHover hasCart">
-                            <a href="product-details.html">
-                                <img class="img-responsive primaryImage" alt="img" src="images/product/51a.jpg">
-                                <img class="img-responsive secondaryImage" alt="img" src="images/product/51b.jpg"></a>
-
-                            <div class="product-btn-box">
-                                <a class="btn btn-product-flat btn-primary">
-                                    <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span>
-                                </a>
+                        <div class="image">
+                            <div class="quickview">
+                                <a data-toggle="modal" class="btn btn-xs btn-quickview" href="ajax/product.html"
+                                   data-target="#productSetailsModalAjax">Quick View </a>
                             </div>
-
+                            <a href="product-details.html"><img src="images/product/9.jpg" alt="img" class="img-responsive"></a>
                         </div>
+                        <div class="description">
+                            <h4><a href="product-details.html">mutationem consuetudium </a></h4>
 
-
-                        <div class="prod-details">
-                              <p class="title">
-                                <a href="product-details-style5-4.1-with-zoom.html" title=""> Men Flat TShirt </a>
-                            </p>
-
-
-                            <p class="product-flat-info">
-                                <span class="product-curreent-price">
-                                $100.00
-                                </span>
-                                &nbsp;|&nbsp;
-                                <span class="product-model">Mixed Grey </span></p>
-
-                            <div class="product-color">
-                                <a style="background-color:#f1f40e"> </a>
-                                <a style="background-color:#adadad"> </a>
-                                <a style="background-color:#4EC67F"> </a>
-
-                            </div>
-                        </div>
-
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <span class="size">XL / XXL / S </span></div>
+                        <div class="price"><span>$25</span></div>
+                        <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i
+                                            class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>
                     </div>
                 </div>
+                <div class="item">
+                    <div class="product">
+                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"
+                           data-placement="left">
+                            <i class="glyphicon glyphicon-heart"></i>
+                        </a>
 
+                        <div class="image">
+                            <div class="quickview">
+                                <a data-toggle="modal" class="btn btn-xs btn-quickview" href="ajax/product.html"
+                                   data-target="#productSetailsModalAjax">Quick View </a>
+                            </div>
+                            <a href="product-details.html"><img src="images/product/12.jpg" alt="img"
+                                                                class="img-responsive"></a></div>
+                        <div class="description">
+                            <h4><a href="product-details.html">sequitur mutationem </a></h4>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <span class="size">XL / XXL / S </span></div>
+                        <div class="price"><span>$25</span></div>
+                        <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i
+                                            class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="product">
+                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"
+                           data-placement="left">
+                            <i class="glyphicon glyphicon-heart"></i>
+                        </a>
+
+                        <div class="image">
+                            <div class="quickview">
+                                <a data-toggle="modal" class="btn btn-xs btn-quickview" href="ajax/product.html"
+                                   data-target="#productSetailsModalAjax">Quick View </a>
+                            </div>
+                            <a href="product-details.html"><img src="images/product/13.jpg" alt="img"
+                                                                class="img-responsive"></a></div>
+                        <div class="description">
+                            <h4><a href="product-details.html">consuetudium lectorum.</a></h4>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <span class="size">XL / XXL / S </span></div>
+                        <div class="price"><span>$25</span></div>
+                        <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i
+                                            class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="product">
+                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"
+                           data-placement="left">
+                            <i class="glyphicon glyphicon-heart"></i>
+                        </a>
+
+                        <div class="image">
+                            <div class="quickview">
+                                <a data-toggle="modal" class="btn btn-xs btn-quickview" href="ajax/product.html"
+                                   data-target="#productSetailsModalAjax">Quick View </a>
+                            </div>
+                            <a href="product-details.html"><img src="images/product/21.jpg" alt="img"
+                                                                class="img-responsive"></a></div>
+                        <div class="description">
+                            <h4><a href="product-details.html">parum claram</a></h4>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <span class="size">XL / XXL / S </span></div>
+                        <div class="price"><span>$25</span></div>
+                        <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i
+                                            class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="product">
+                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"
+                           data-placement="left">
+                            <i class="glyphicon glyphicon-heart"></i>
+                        </a>
+
+                        <div class="image">
+                            <div class="quickview">
+                                <a data-toggle="modal" class="btn btn-xs btn-quickview" href="ajax/product.html"
+                                   data-target="#productSetailsModalAjax">Quick View </a>
+                            </div>
+                            <a href="product-details.html"><img src="images/product/24.jpg" alt="img"
+                                                                class="img-responsive"></a></div>
+                        <div class="description">
+                            <h4><a href="product-details.html">duis dolore </a></h4>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <span class="size">XL / XXL / S </span></div>
+                        <div class="price"><span>$25</span></div>
+                        <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i
+                                            class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="product">
+                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"
+                           data-placement="left">
+                            <i class="glyphicon glyphicon-heart"></i>
+                        </a>
+
+                        <div class="image">
+                            <div class="quickview">
+                                <a data-toggle="modal" class="btn btn-xs btn-quickview" href="ajax/product.html"
+                                   data-target="#productSetailsModalAjax">Quick View </a>
+                            </div>
+                            <a href="product-details.html"><img src="images/product/15.jpg" alt="img"
+                                                                class="img-responsive"></a></div>
+                        <div class="description">
+                            <h4><a href="product-details.html">feugait nulla facilisi</a></h4>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <span class="size">XL / XXL / S </span></div>
+                        <div class="price"><span>$25</span></div>
+                        <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i
+                                            class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>
+                    </div>
+                </div>
             </div>
-        </div>
+            <!--/.productslider-->
 
+        </div>
+        <!--/.featuredPostContainer-->
     </div>
+    <!-- /main container -->
 </section>

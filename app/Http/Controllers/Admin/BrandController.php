@@ -5,42 +5,42 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\HomeBanner;
+use App\Brand;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use Response;
 use DB;
 use Request;
 
-class HomeBannerController extends Controller
+class BrandController extends Controller
 {
     public function create()
     {
-        return view('admin.homebanner.create');
+        return view('admin.brand.create');
     }
 
     public function index()
     {
-        $HomeBanners = HomeBanner::all()->where('status', 1);
-        return view('admin.homebanner.index', compact('HomeBanners'));
+        $Brands = Brand::all()->where('status', 1);
+        return view('admin.brand.index', compact('Brands'));
     }
 
     public function availableIndex()
     {
-        $HomeBanners = HomeBanner::all()->where('status', 1);
-        return $HomeBanners;
+        $Brands = Brand::all()->where('status', 1);
+        return $Brands;
     }
 
     public function recoverIndex()
     {
-        $HomeBanners = HomeBanner::all()->where('status', 4);
-        return $HomeBanners;
+        $Brands = Brand::all()->where('status', 4);
+        return $Brands;
     }
 
     public function recoverView()
     {
-        $HomeBanners = HomeBanner::all()->where('status', 4);
-        return view('admin.homebanner.recover', compact('HomeBanners'));
+        $Brands = Brand::all()->where('status', 4);
+        return view('admin.brand.recover', compact('Brands'));
     }
 
     public function store(){
@@ -50,13 +50,11 @@ class HomeBannerController extends Controller
         $rules = array(
             'image' => 'required|image',
             'title' => 'required',
-            'link_path' => 'required',
         );
 
         $niceNames = array(
-            'image' => 'Home Banner',
+            'image' => 'brand image',
             'title' => 'Title',
-            'link_path' => 'Link Path',
         );
 
         $validator = Validator::make($input, $rules);
@@ -67,35 +65,34 @@ class HomeBannerController extends Controller
 
         }
         else {
-            $destinationPath = 'uploads/banners/';
+            $destinationPath = 'uploads/brands/';
             $filename = $file->getClientOriginalName();
             Input::file('image')->move($destinationPath, $filename);
 
-            $create = HomeBanner::create([
+            $create = Brand::create([
                 'show' => 0,
-                'link_path' => Input::get('link_path'),
                 'title' => Input::get('title'),
             ]);
 
             //when create a user, it will attach a member role
-            $HomeBanner = HomeBanner::find($create->id);
+            $Brand = Brand::find($create->id);
 
             $ext = substr($filename, strrpos($filename, "."));
-            $newFileName = basename($filename, $ext) . "_" . $HomeBanner->id . "_" . date("Ymdhis")   . $ext;
+            $newFileName = basename($filename, $ext) . "_" . $Brand->id . "_" . date("Ymdhis")   . $ext;
 
             rename($destinationPath . $filename, $destinationPath . $newFileName);
 
-            HomeBanner::where('id', $HomeBanner->id)
+            Brand::where('id', $Brand->id)
                 ->update(['image_path' => $destinationPath . $newFileName]);
 
-            return Response::json(['success' => true, 'message'=>  'A Home Banner has been created!','file' => asset($destinationPath.$filename)]);
+            return Response::json(['success' => true, 'message'=>  'A Brand has been created!','file' => asset($destinationPath.$filename)]);
         }
     }
 
     public function edit($id)
     {
-        $HomeBanner = HomeBanner::whereId($id)->firstOrFail();
-        return view('admin.homebanner.edit', compact('HomeBanner'));
+        $Brand = Brand::whereId($id)->firstOrFail();
+        return view('admin.brand.edit', compact('Brand'));
     }
 
     public function update($id) {
@@ -107,7 +104,7 @@ class HomeBannerController extends Controller
         );
 
         $niceNames = array(
-            'image' => 'Home Banner',
+            'image' => 'brand image',
         );
 
         $validator = Validator::make($input, $rules);
@@ -116,47 +113,44 @@ class HomeBannerController extends Controller
             return Response::json(['success' => false, 'errors' => $validator->getMessageBag()->toArray()]);
         }else {
 
-            $HomeBanner = HomeBanner::find($id);
+            $Brand = Brand::find($id);
 
             if (Input::has('show')) {
-                $HomeBanner->show = Input::get('show');
+                $Brand->show = Input::get('show');
             }
             if (Input::has('ordering')) {
-                $HomeBanner->ordering = Input::get('ordering');
+                $Brand->ordering = Input::get('ordering');
             }
             if (Input::has('status')) {
-                $HomeBanner->status = Input::get('status');
-            }
-            if (Input::has('link_path')) {
-                $HomeBanner->link_path = Input::get('link_path');
+                $Brand->status = Input::get('status');
             }
             if (Input::has('title')) {
-                $HomeBanner->title = Input::get('title');
+                $Brand->title = Input::get('title');
             }
 
             if (Input::hasfile('image')) {
                 $file = Input::file('image');
 
-                $destinationPath = 'uploads/banners/';
+                $destinationPath = 'uploads/brands/';
                 $filename = $file->getClientOriginalName();
                 Input::file('image')->move($destinationPath, $filename);
 
                 $ext = substr($filename, strrpos($filename, "."));
-                $newFileName = basename($filename, $ext) . "_" . $HomeBanner->id . "_" . date("Ymdhis") . $ext;
+                $newFileName = basename($filename, $ext) . "_" . $Brand->id . "_" . date("Ymdhis") . $ext;
 
                 rename($destinationPath . $filename, $destinationPath . $newFileName);
 
-                HomeBanner::where('id', $HomeBanner->id)
+                Brand::where('id', $Brand->id)
                     ->update(['image_path' => $destinationPath . $newFileName]);
 
             }
 
-            $HomeBanner->save();
+            $Brand->save();
 
             if (Input::hasfile('image')) {
-                return Response::json(['success' => true, 'message' => 'Home Banner has been updated!', 'file' => asset($destinationPath . $newFileName)]);
+                return Response::json(['success' => true, 'message' => 'Brand has been updated!', 'file' => asset($destinationPath . $newFileName)]);
             } else {
-                return Response::json(['success' => true, 'message' => 'Home Banner has been updated!']);
+                return Response::json(['success' => true, 'message' => 'Brand has been updated!']);
             }
         }
     }
