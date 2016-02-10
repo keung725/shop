@@ -1,40 +1,43 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Users Edit')
+@section('title', 'Category Edit')
 
 @section('admin_content')
 
     <div class="content-wrapper">
-
         @include('admin.layouts.breadcrumb')
                 <!-- Main content -->
         <section class="content">
-
             <div class="box box-warning">
                 <div class="box-header with-border">
                     <h3 class="box-title">@yield('title')</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                    <form class="form" id="dataForm" method="post" action="{{ url('admin/users/'.$user->id)}}">
+                    <form class="form" id="upload" enctype="multipart/form-data" method="post" action="{{ url('admin/category/'.$Category->id)}}" autocomplete="off">
                         <div id="success_message"></div>
                         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                         <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}">
-
+                            <label>Category image</label>
+                            @if($Category->image_path !='')
+                            <img id="image_banner" src="{{ URL::asset($Category->image_path)}}" class="img-responsive" style="width:250px;"/>
+                            @endif
+                            <input type="file"  class="form-control" name="image" id="image" />
+                            <div id="image"></div>
                         </div>
                         <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}" disabled>
-
+                            <label>Title</label>
+                            <input type="text" class="form-control" id="title" name="title" value="{!! $Category->title !!}">
+                            <div id="title"></div>
                         </div>
                         <div class="form-group">
-                            <label>Role</label>
-                            <select class="form-control" id="role" name="role[]" multiple>
-                                @foreach($roles as $role)
-                                    <option value="{!! $role->id !!}"  @if(in_array($role->id, $selectedRoles))
-                                    selected="selected" @endif >{!! $role->display_name !!}
-                                    </option>
+                            <label for="levelTwo">Categories Level Two (not a must):</label>
+                            <select class="form-control" id="level2" name="level2">
+                                <option value="">不適用</option>
+                                @foreach($levelOnes as $levelOne)
+                                    <option value="{!! $levelOne->id !!}"
+                                            @if($levelOne->id == $Category->parent_id)
+                                            selected="selected" @endif >
+                                    {!! $levelOne->title !!}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -51,7 +54,6 @@
     </div>
 @endsection
 
-
 @section('page-script')
     <script type="text/javascript">
         $(document).ready(function() {
@@ -60,11 +62,13 @@
                 success:       showResponse,
                 dataType: 'json'
             };
-            $('#dataForm').ajaxForm(options);
+            $('#upload').ajaxForm(options);
 
         });
         function showRequest(formData, jqForm, options) {
+            $("#validation-errors").hide().empty();
             $("#success_message").hide().empty();
+            $("#output").css('display','none');
             return true;
         }
         function showResponse(response, statusText, xhr, $form)  {
@@ -81,15 +85,14 @@
                         $("div#" + index).show().delay(2000).fadeOut();
                     }
                 });
-
             } else {
                 var success = response.message;
+                var image_location = response.file;
+
+                $("#image_banner").attr("src", image_location);
                 $("#success_message").append('<p class="alert alert-success"><strong>'+ success +'</strong></p>');
                 $("#success_message").show().delay(2000).fadeOut();
             }
         }
-
-
-
     </script>
 @stop

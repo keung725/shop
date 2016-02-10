@@ -3,140 +3,81 @@
         <div class="container">
             <div class="row">
 
-                <div class=" col-lg-2 col-md-2 col-sm-2 col-xs-6 ">
+                <div class=" col-lg-3 col-md-3 col-sm-4 col-xs-12">
                     <div class="footer-col">
-                        <h4 class="footer-title">About us</h4>
-                        <ul class="list-unstyled footer-nav">
-                            <li><a href="#">Company Profile</a></li>
-                            <li><a href="#">Leadership</a></li>
-                            <li><a href="#">Manufacturing Facilities</a></li>
-                            <li><a href="#">Quality Policy</a></li>
-                            <li><a href="#">Our Values</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class=" col-lg-2 col-md-2 col-sm-2 col-xs-6 ">
-                    <div class="footer-col">
-                        <h4 class="footer-title">Shop</h4>
-                        <ul class="list-unstyled footer-nav">
-                            <li><a href="#">
-                                Men's
-                            </a></li>
-                            <li><a href="#">
-                                Women's</a></li>
-                            <li><a href="#">
-                                Kids'
-                            </a></li>
-                            <li><a href="#">Shoes
-                            </a></li>
-                            <li><a href="#">
-                                Gift Cards
-                            </a></li>
-
-                        </ul>
-                    </div>
-                </div>
-                <div class=" col-lg-2 col-md-2 col-sm-2 col-xs-6 ">
-                    <div class="footer-col">
-                        <h4 class="footer-title">Help</h4>
-                        <ul class="list-unstyled footer-nav">
-                            <li><a href="#">Questions?
-                            </a></li>
-
-                            <li><a href="#"> Order Status
-                            </a></li>
-                            <li><a href="#"> Sizing Charts
-                            </a></li>
-                            <li><a href="#"> Return Policy </a></li>
-                            <li><a href="#">
-                                Contact Us
-                            </a></li>
-
-                        </ul>
-                    </div>
-                </div>
-                <div class=" col-lg-2 col-md-2 col-sm-2 col-xs-6 ">
-                    <div class="footer-col">
-                        <h4 class="footer-title">Events</h4>
-                        <ul class="list-unstyled footer-nav">
-                            <li><a href="#">Spring/Summer 2015
-                            </a></li>
-                            <li><a href="#">Spring/Summer 2014
-                            </a></li>
-                            <li><a href="#"> London Fashion Week
-                            </a></li>
-                            <li><a href="#"> Paris Fashion Week
-                            </a></li>
-                            <li><a href="#"> Look Back
-                            </a></li>
-
-
+                        <h4 class="footer-title">客服</h4>
+                        <ul>
+                            <li>
+                                <a class="inline" href="tel:+85268258193"> <strong> <i class="fa fa-whatsapp"></i> +85268258193 </strong> </a>
+                            </li>
+                            <li>
+                                <a class="inline" href="tel:+85268258193"> <strong> <i class="fa fa-phone"> </i> +85268258193 </strong> </a>
+                            </li>
+                            <li>
+                                <a class="inline" href="mailto:cs@kcbroom.com"> <i class="fa fa-envelope-o"> </i> cs@kcbroom.com </a>
+                            </li>
+                            <li>
+                                <a class="inline" href="https://www.facebook.com/"> <i class="fa fa-facebook-square"> </i> KCBRoom </a>
+                            </li>
+                            <li>
+                                <a class="inline" href="http://instagram.com/"> <i class="fa fa-instagram"> </i> KCBRoom </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <div class=" col-lg-3 col-md-3 col-sm-4 col-xs-12">
-                    <div class="footer-col row">
-                        <div class="col-sm-12 col-xs-6 col-xxs-12 no-padding-lg">
-                            <h4 class="footer-title">Follow us on</h4>
-                            <ul class="list-unstyled list-inline footer-nav social-list footer-nav-inline">
-                                <li><a title="Facebook" data-placement="top" data-toggle="tooltip" href="#"><i
-                                        class="fa fa-facebook"></i> </a></li>
-                                <li><a title="Twitter" data-placement="top" data-toggle="tooltip" href="#"><i
-                                        class="fa fa-twitter"></i> </a></li>
-                                <li><a title="Google+" data-placement="top" data-toggle="tooltip" href="#"><i
-                                        class="fa fa-google-plus"></i> </a></li>
-                                <li><a title="Linkedin" data-placement="top" data-toggle="tooltip" href="#"><i
-                                        class="fa fa-linkedin"></i> </a></li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-12 col-xs-6 col-xxs-12 ">
+                    <div class="footer-col">
+                        <h4 class="footer-title">我的會員中心</h4>
+                        <ul>
+                            @if (Auth::check())
+                                @if(Auth::user()->hasRole(['siteowner', 'admin']))
+                                    <li><a href="{{ url('/admin') }}">管理頁面</a></li>
+                                @endif
+                                <li> <a href="{{ url('/profile') }}">用戶資料</a></li>
+                                <li> <a href="{{ url('/logout') }}">登出</a></li>
+                            @else
+                            <li> <a a="" href="#" data-toggle="modal" data-target="#ModalLogin"> 登入 </a> </li>
+                            <li> <a href="#" data-toggle="modal" data-target="#ModalSignup">登記會員 </a> </li>
+                            @endif
 
-                            <div class="hero-subscribe">
-                                <h4 class="footer-title no-margin">Newsletter sign up </h4>
-                                <!-- Appended Input-->
-                                <form class="form-horizontal">
-                                    <fieldset>
+                        </ul>
 
-                                        <!-- Appended Input-->
-                                        <div class="control-group">
-                                            <div class="controls">
-                                                <div class="search input-group" role="search" id="newsletter-signup">
-                                                    <input type="search" class="form-control"
-                                                           placeholder="Enter  your email address">
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">GO</span>
-                </button>
-
-            </span>
-                                                </div>
-                                                <p class="help-block hide">help message or error message</p>
-                                            </div>
-                                        </div>
-
-                                    </fieldset>
-                                </form>
-
-                            </div>
-                        </div>
+                    </div>
+                </div>
+                <div class=" col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                    <div class="footer-col">
+                        <h4 class="footer-title">重要資料</h4>
+                        <ul>
+                            <li><a href="#">條款及細則</a></li>
+                            <li><a href="#">私隱政策‏</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class=" col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                    <div class="footer-col">
+                        <h4 class="footer-title">接觸我們更多</h4>
+                        <ul>
+                            <li>
+                                <div class="input-append newsLatterBox text-center">
+                                    <input type="text" class="full text-center" name="edm" id="edm_field" placeholder="電子郵件 ">
+                                    <button class="btn  bg-gray" type="button" id="edm_button"> 訂閱電子報 <i class="fa fa-long-arrow-right"> </i> </button>
+                                    <h3 id="txtedm" class="incaps">
+                                    </h3></div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div style="clear: both"></div>
 
                 <div class="col-lg-12">
                     <div class=" text-center paymanet-method-logo">
-
                         <img src="{{ URL::asset('images/site/payment/master_card.png')}}" alt="img">
                         <img alt="img" src="{{ URL::asset('images/site/payment/visa_card.png')}}">
                         <img alt="img" src="{{ URL::asset('images/site/payment/paypal.png')}}">
-                        <img alt="img" src="{{ URL::asset('images/site/payment/american_express_card.png')}}"> <img alt="img"
-                                                                                                 src="{{ URL::asset('images/site/payment/discover_network_card.png')}}">
-                        <img alt="img" src="{{ URL::asset('images/site/payment/google_wallet.png')}}">
                     </div>
 
                     <div class="copy-info text-center">
-                        &copy; 2015 Tshop Template &amp; Co.
+                        &copy; 2016 KCBRoom 保留所有的權利
                     </div>
 
                 </div>

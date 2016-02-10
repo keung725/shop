@@ -16,20 +16,21 @@
             </div><!-- /.box-header -->
             <div class="box-body">
                 <form class="form" id="dataForm" method="post" action="{{ url('admin/roles/store')}}">
-                    <div id="validation-errors"></div>
                     <div id="success_message"></div>
                     <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" class="form-control" id="name" name="name">
+                        <input type="text" class="form-control" name="name" id="name">
+                        <div id="name"></div>
                     </div>
                     <div class="form-group">
                         <label>Display Name</label>
-                        <input type="display_name" class="form-control" id="display_name" name="display_name">
+                        <input type="display_name" class="form-control" name="display_name" id="display_name">
+                        <div id="display_name"></div>
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <textarea class="form-control" rows="3" id="description" name="description"></textarea>
+                        <textarea class="form-control" rows="3" name="description" id="description"></textarea>
                     </div>
                     <div class="form-group">
                         <div class="col-lg-10 col-lg-offset-2">
@@ -58,7 +59,6 @@
 
         });
         function showRequest(formData, jqForm, options) {
-            $("#validation-errors").hide().empty();
             $("#success_message").hide().empty();
             return true;
         }
@@ -71,11 +71,12 @@
                 {
                     if (value.length != 0)
                     {
-                        $("#validation-errors").append('<p class="alert alert-danger"><strong>'+ value +'</strong></p>');
-                        $("#validation-errors").show().delay(2000).fadeOut();
+                        $("div#" + index).hide().empty();
+                        $("div#" + index).append('<p class="alert-danger"><strong>'+ value +'</strong></p>');
+                        $("div#" + index).show().delay(2000).fadeOut();
                     }
                 });
-                $("#validation-errors").show();
+
             } else {
                 var success = response.message;
                 $("#success_message").append('<p class="alert alert-success"><strong>'+ success +'</strong></p>');
