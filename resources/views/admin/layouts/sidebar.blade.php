@@ -49,6 +49,19 @@
 
             <li class="treeview">
                 <a href="#">
+                    <i class="fa fa-table"></i> <span>Brand</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ url('/admin/brands') }}"><i class="fa fa-table"></i> All Brand</a></li>
+                    <li><a href="{{ url('/admin/brands/create') }}"><i class="fa fa-table"></i> Create Brand</a></li>
+                    <li><a href="{{ url('/admin/brands/recover') }}"><i class="fa fa-trash-o"></i> Recover Brand</a></li>
+
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
                     <i class="fa fa-edit"></i> <span>Roles</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>

@@ -8,13 +8,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="no-margin brand-carousel owl-carousel owl-theme">
-                        <li><a><img src="images/brand/1.gif" alt="img"></a></li>
-                        <li><img src="images/brand/2.png" alt="img"></li>
-                        <li><img src="images/brand/3.png" alt="img"></li>
-                        <li><img src="images/brand/4.png" alt="img"></li>
-                        <li><img src="images/brand/5.png" alt="img"></li>
-                        <li><img src="images/brand/6.png" alt="img"></li>
-                        <li><img src="images/brand/7.png" alt="img"></li>
+                        @foreach($Brands as $Brand)
+                            <li><img src="{{$Brand->image_path}}" alt="i{{$Brand->title}}"></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

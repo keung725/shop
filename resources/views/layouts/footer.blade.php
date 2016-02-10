@@ -71,17 +71,13 @@
 
                 <div class="col-lg-12">
                     <div class=" text-center paymanet-method-logo">
-
                         <img src="{{ URL::asset('images/site/payment/master_card.png')}}" alt="img">
                         <img alt="img" src="{{ URL::asset('images/site/payment/visa_card.png')}}">
                         <img alt="img" src="{{ URL::asset('images/site/payment/paypal.png')}}">
-                        <img alt="img" src="{{ URL::asset('images/site/payment/american_express_card.png')}}"> <img alt="img"
-                                                                                                 src="{{ URL::asset('images/site/payment/discover_network_card.png')}}">
-                        <img alt="img" src="{{ URL::asset('images/site/payment/google_wallet.png')}}">
                     </div>
 
                     <div class="copy-info text-center">
-                        &copy; 2015 Tshop Template &amp; Co.
+                        &copy; 2016 KCBRoom 保留所有的權利
                     </div>
 
                 </div>

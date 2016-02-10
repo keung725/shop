@@ -21,7 +21,9 @@ class PageController extends Controller
 
         $levelTwoCategories = DB::table('categories')->where('status', 1)->where('show', 1)->where('favor', 1)->whereNotNull('parent_id')->orderBy('ordering', 'asc')->get();
 
-        return view('home', compact('HomeBanners', 'Categories', 'levelTwoCategories'));
+        $Brands = DB::table('brands')->where('status', 1)->where('show', 1)->orderBy('ordering', 'asc')->get();
+
+        return view('home', compact('HomeBanners', 'Categories', 'levelTwoCategories', 'Brands'));
     }
 
 }

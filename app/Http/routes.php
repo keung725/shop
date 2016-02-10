@@ -81,6 +81,15 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('category/{id?}', 'CategoryController@edit');
         Route::post('category/{id?}', 'CategoryController@update');
 
+        Route::get('brands', 'BrandController@index');
+        Route::get('brands/available', 'BrandController@availableIndex');
+        Route::get('brands/recover', 'BrandController@recoverView');
+        Route::get('brands/recovers', 'BrandController@recoverIndex');
+        Route::get('brands/create', 'BrandController@create');
+        Route::post('brands/store', 'BrandController@store');
+        Route::get('brands/{id?}', 'BrandController@edit');
+        Route::post('brands/{id?}', 'BrandController@update');
+
     });
 
 });

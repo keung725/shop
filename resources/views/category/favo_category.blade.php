@@ -1,4 +1,4 @@
-<section class="section-hero white-bg" id="section-category">
+<section class="section-hero section-gray" id="section-category">
     <div class="container">
 
         <div class="hero-section-header ">

@@ -1,4 +1,4 @@
-<section class="section-hero section-gray" id="section-shop">
+<section class="section-hero white-bg" id="section-shop">
     <div class="container main-container">
 
         <!-- Main component call to action -->
